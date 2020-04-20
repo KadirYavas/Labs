@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index')->name('welcome');
+
+Route::get('/Service', 'ServiceController@index')->name('service');
+
+Route::get('/Blog', 'ArticleController@index')->name('blog');
+Route::get('/Blog-Post', 'ArticleController@indexDeux')->name('blog-post');
+
+Route::get('/Contact', 'ContactController@index')->name('contact');
 
 Auth::routes();
 

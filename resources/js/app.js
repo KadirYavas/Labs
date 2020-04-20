@@ -31,11 +31,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 //     el: '#app',
 // });
 
-require('bootstrap');
-require('jquery');
-require('popper.js');
-require('./js/main');
-require('./js/map');
-require('./js/circle-progress.min.js');
-require('./js/magnific-popup.min.js');
-require('./js/owl.carousel.min.js');
+// require('./js/jquery-2.1.4.min.js');
+// require('popper.js');
+// require('bootstrap');
+// // require('jquery');
+// require('./js/magnific-popup.min.js');
+// require('./js/owl.carousel.min.js');
+// require('./js/circle-progress.min.js');
+// require('./js/main');
+// // require('jquery.easing');
+// require('./js/map');
