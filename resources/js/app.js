@@ -27,6 +27,15 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+// const app = new Vue({
+//     el: '#app',
+// });
+
+require('bootstrap');
+require('jquery');
+require('popper.js');
+require('./js/main');
+require('./js/map');
+require('./js/circle-progress.min.js');
+require('./js/magnific-popup.min.js');
+require('./js/owl.carousel.min.js');

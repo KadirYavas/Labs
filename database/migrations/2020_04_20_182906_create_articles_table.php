@@ -18,6 +18,18 @@ class CreateArticlesTable extends Migration
             $table->char('photo');
             $table->char('titre');
             $table->char('description');
+            $table->bigInteger('users_id')->unsigned();
+            $table->foreign('users_id')
+                ->on('users')
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->bigInteger('categories_id')->unsigned();
+            $table->foreign('categories_id')
+                ->on('categories')
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
