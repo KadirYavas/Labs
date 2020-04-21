@@ -225,7 +225,12 @@ return [
         ],
         [
             'text'        => 'Header',
-            'url'         => '/BDDHeader',
+            'url'         => '/BDD-Header',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
+            'text'        => 'Service',
+            'url'         => '/BDD-Service',
             'icon'        => 'far fa-fw fa-file',
         ],
         ['header' => 'account_settings'],

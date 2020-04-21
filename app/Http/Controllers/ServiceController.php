@@ -18,6 +18,11 @@ class ServiceController extends Controller
         $header = Header::all();
         return view('service', compact('header'));
     }
+    public function indexBDD()
+    {
+        $service = Service::all();
+        return view('service/bdd', compact('service'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +31,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('service/ajoutService', compact('service'));
     }
 
     /**
@@ -37,7 +42,19 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'logo' => 'required',
+            'titre' => 'required|max:30|min:4',
+            'description' => 'required|max:500|min:10',
+        ]);
+
+        $service = new Service();
+        $service->logo = $request->input('logo');
+        $service->titre = $request->input('titre');
+        $service->description = $request->input('description');
+        $service->save();
+
+        return redirect()->route('ServiceBDD');
     }
 
     /**
@@ -57,9 +74,10 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        $service = Service::find($id);
+        return view('service/editService', compact('service'));
     }
 
     /**
@@ -69,9 +87,22 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'logo' => 'required',
+            'titre' => 'required|max:30|min:4',
+            'description' => 'required|max:500|min:10',
+        ]);
+
+        $service = Service::find($id);
+        $service->logo = $request->input('logo');
+        $service->titre = $request->input('titre');
+        $service->description = $request->input('description');
+
+        $service->save();
+
+        return redirect()->route('ServiceBDD');
     }
 
     /**
@@ -80,8 +111,10 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $service = Service::find($id);
+        $service->delete();
+        return redirect()->route('ServiceBDD');
     }
 }

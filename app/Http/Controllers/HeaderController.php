@@ -89,9 +89,9 @@ class HeaderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'texte' => 'required|max:3000|min:4',
-        // ]);
+        $request->validate([
+            'logo' => 'required|file',
+        ]);
 
         $image = Storage::disk('public')->put('', $request->file('logo'));
 
@@ -104,9 +104,12 @@ class HeaderController extends Controller
     }
     public function updateNav(Request $request, $id)
     {
-        // $request->validate([
-        //     'texte' => 'required|max:3000|min:4',
-        // ]);
+        $request->validate([
+            'navUn' => 'required|max:15|min:3',
+            'navDeux' => 'required|max:15|min:3',
+            'navTrois' => 'required|max:15|min:3',
+            'navQuatre' => 'required|max:15|min:3',
+        ]);
 
         $headerNav = Header::find($id);
         $headerNav->navUn = $request->input('navUn');
@@ -120,9 +123,9 @@ class HeaderController extends Controller
     }
     public function updateCarousel(Request $request, $id)
     {
-        // $request->validate([
-        //     'texte' => 'required|max:3000|min:4',
-        // ]);
+        $request->validate([
+            'image' => 'required|file',
+        ]);
 
         $image = Storage::disk('public')->put('', $request->file('image'));
 
@@ -135,9 +138,9 @@ class HeaderController extends Controller
     }
     public function updateTexte(Request $request, $id)
     {
-        // $request->validate([
-        //     'texte' => 'required|max:3000|min:4',
-        // ]);
+        $request->validate([
+            'texte' => 'required|max:50|min:4',
+        ]);
 
         $headerTexte = Header::find($id);
         $headerTexte->texte = $request->input('texte');
