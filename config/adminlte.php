@@ -219,11 +219,14 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'text'        => 'Homepage',
+            'url'         => '/',
+            'icon'        => 'fas fa-home',
+        ],
+        [
+            'text'        => 'Header',
+            'url'         => '/BDDHeader',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [

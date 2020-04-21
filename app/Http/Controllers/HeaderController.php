@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Header;
+use App\Carousel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HeaderController extends Controller
 {
@@ -14,7 +16,9 @@ class HeaderController extends Controller
      */
     public function index()
     {
-        //
+        $header = Header::all();
+        $carousel = Carousel::all();
+        return view('header/bdd', compact('header', 'carousel'));
     }
 
     /**
@@ -55,9 +59,25 @@ class HeaderController extends Controller
      * @param  \App\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function edit(Header $header)
+    public function edit($id)
     {
-        //
+        $header = Header::find($id);
+        return view('header/editLogo', compact('header'));
+    }
+    public function editNav($id)
+    {
+        $headerNav = Header::find($id);
+        return view('header/editNav', compact('headerNav'));
+    }
+    public function editCarousel($id)
+    {
+        $headerCarousel = Carousel::find($id);
+        return view('header/editCarousel', compact('headerCarousel'));
+    }
+    public function editTexte($id)
+    {
+        $headerTexte = Header::find($id);
+        return view('header/editTexte', compact('headerTexte'));
     }
 
     /**
@@ -67,9 +87,64 @@ class HeaderController extends Controller
      * @param  \App\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Header $header)
+    public function update(Request $request, $id)
     {
-        //
+        // $request->validate([
+        //     'texte' => 'required|max:3000|min:4',
+        // ]);
+
+        $image = Storage::disk('public')->put('', $request->file('logo'));
+
+        $header = Header::find($id);
+        $header->logo = $image;
+
+        $header->save();
+
+        return redirect()->route('welcome');
+    }
+    public function updateNav(Request $request, $id)
+    {
+        // $request->validate([
+        //     'texte' => 'required|max:3000|min:4',
+        // ]);
+
+        $headerNav = Header::find($id);
+        $headerNav->navUn = $request->input('navUn');
+        $headerNav->navDeux = $request->input('navDeux');
+        $headerNav->navTrois = $request->input('navTrois');
+        $headerNav->navQuatre = $request->input('navQuatre');
+
+        $headerNav->save();
+
+        return redirect()->route('welcome');
+    }
+    public function updateCarousel(Request $request, $id)
+    {
+        // $request->validate([
+        //     'texte' => 'required|max:3000|min:4',
+        // ]);
+
+        $image = Storage::disk('public')->put('', $request->file('image'));
+
+        $headerCarousel = Carousel::find($id);
+        $headerCarousel->image = $image;
+
+        $headerCarousel->save();
+
+        return redirect()->route('welcome');
+    }
+    public function updateTexte(Request $request, $id)
+    {
+        // $request->validate([
+        //     'texte' => 'required|max:3000|min:4',
+        // ]);
+
+        $headerTexte = Header::find($id);
+        $headerTexte->texte = $request->input('texte');
+
+        $headerTexte->save();
+
+        return redirect()->route('welcome');
     }
 
     /**

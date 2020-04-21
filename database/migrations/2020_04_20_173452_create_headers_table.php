@@ -16,9 +16,11 @@ class CreateHeadersTable extends Migration
         Schema::create('headers', function (Blueprint $table) {
             $table->id();
             $table->char('logo')->nullable();
-            $table->char('image')->nullable();
             $table->char('texte')->nullable();
-            $table->char('nav')->nullable();
+            $table->char('navUn')->nullable();
+            $table->char('navDeux')->nullable();
+            $table->char('navTrois')->nullable();
+            $table->char('navQuatre')->nullable();
             $table->timestamps();
         });
     }

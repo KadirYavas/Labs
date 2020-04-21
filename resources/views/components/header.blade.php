@@ -1,16 +1,26 @@
 <!-- Header section -->
 <header class="header-section">
-    <div class="logo">
-        <img src="img/logo.png" alt=""><!-- Logo -->
-    </div>
+    @foreach ($header as $item)
+        <div class="logo">
+            <img src="{{asset('storage/'.$item->logo)}}" height="40px" alt=""><!-- Logo -->
+        </div>
+    @endforeach
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
     <nav>
         <ul class="menu-list">
-            <li class="active"><a href="{{route('welcome')}}">Home</a></li>
-            <li><a href="{{route('service')}}">Services</a></li>
-            <li><a href="{{route('blog')}}">Blog</a></li>
-            <li><a href="{{route('contact')}}">Contact</a></li>
+            @foreach ($header as $item) 
+                <li class="active"><a href="{{route('welcome')}}">{{$item->navUn}}</a></li>
+                <li><a href="{{route('service')}}">{{$item->navDeux}}</a></li>
+                <li><a href="{{route('blog')}}">{{$item->navTrois}}</a></li>
+                <li><a href="{{route('contact')}}">{{$item->navQuatre}}</a></li>
+            @endforeach
+            @if (Auth::check())
+                <li><a href="{{route('login')}}">{{ Auth::user()->name }}</a></li>
+            @else
+                <li><a href="{{route('login')}}">LOGIN</a></li>
+                <li><a href="{{route('register')}}">REGISTER</a></li>
+            @endif
         </ul>
     </nav>
 </header>

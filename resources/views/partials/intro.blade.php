@@ -1,15 +1,19 @@
 <!-- Intro Section -->
 <div class="hero-section">
     <div class="hero-content">
-        <div class="hero-center">
-            <img src="img/big-logo.png" alt="">
-            <p>Get your freebie template now!</p>
-        </div>
+        @foreach ($header as $item) 
+            <div class="hero-center">
+                <img src="{{asset('storage/'.$item->logo)}}" alt="">
+                <p>{{$item->texte}}</p>
+            </div>
+        @endforeach
     </div>
     <!-- slider -->
     <div id="hero-slider" class="owl-carousel">
-        <div class="item hero-item" data-bg="{{asset('img/01.jpg')}}"></div>
-        <div class="item hero-item" data-bg="{{asset('img/02.jpg')}}"></div>
+        @foreach ($carousel as $item) 
+            <div class="item hero-item" data-bg="{{asset('img/'.$item->image)}}"></div>
+            {{-- <div class="item hero-item" data-bg="{{asset('img/02.jpg')}}"></div> --}}
+        @endforeach
     </div>
 </div>
 <!-- Intro Section -->

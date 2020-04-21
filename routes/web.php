@@ -22,6 +22,25 @@ Route::get('/Blog-Post', 'ArticleController@indexDeux')->name('blog-post');
 
 Route::get('/Contact', 'ContactController@index')->name('contact');
 
+Route::get('/BDDHeader', 'HeaderController@index')->name('bddHeader');
+Route::get('/EditLogoHeader/{id}', 'HeaderController@edit')->name('editLogoHeader');
+Route::post('/UpdateLogoHeader/{id}', 'HeaderController@update')->name('updateLogoHeader');
+Route::get('/EditNav/{id}', 'HeaderController@editNav')->name('editNav');
+Route::post('/UpdateNav/{id}', 'HeaderController@updateNav')->name('updateNav');
+Route::get('/EditCarousel/{id}', 'HeaderController@editCarousel')->name('editCarousel');
+Route::post('/UpdateCarousel/{id}', 'HeaderController@updateCarousel')->name('updateCarousel');
+Route::get('/EditTexte/{id}', 'HeaderController@editTexte')->name('editTexte');
+Route::post('/UpdateTexte/{id}', 'HeaderController@updateTexte')->name('updateTexte');
+
+
+
+
+
+
+
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

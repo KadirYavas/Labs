@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Header;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -14,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact');
+        $header = Header::all();
+        return view('contact', compact('header'));
     }
 
     /**
