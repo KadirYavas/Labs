@@ -33,7 +33,76 @@ class ServiceController extends Controller
     public function create()
     {
         $service = Service::all();
-        return view('service/ajoutService', compact('service'));
+        $icones = [
+            [
+                'class' => 'flaticon-050-satellite',
+                'code' => 'f131',
+            ],
+            [
+                'class' => 'flaticon-049-projector',
+                'code' => 'f130',
+            ],
+            [
+                'class' => 'flaticon-048-abstract',
+                'code' => 'f12f',
+            ],
+            [
+                'class' => 'flaticon-050-satellite',
+                'code' => 'f131',
+            ],
+            ['class' => 'flaticon-035-smartphone',
+                 'code' => "f122"
+            ],
+            [
+                'class' => 'flaticon-036-brainstorming',
+                 'code' => "f123"
+            ],
+            [
+                'class' => 'flaticon-037-idea',
+                 'code' => "f124"
+            ],
+            [
+                'class' => 'flaticon-038-graphic-tool-1',
+                 'code' => "f125"
+            ],
+            [
+                'class' => 'flaticon-039-vector',
+                 'code' => "f126"
+            ],
+            [
+                'class' => 'flaticon-040-rgb',
+                 'code' => "f127"
+            ],
+            [
+                'class' => 'flaticon-041-graphic-tool',
+                 'code' => "f128"
+            ],
+            [
+                'class' => 'flaticon-042-typography',
+                 'code' => "f129"
+            ],
+            [
+                'class' => 'flaticon-043-sketch',
+                 'code' => "f12a"
+            ],
+            [
+                'class' => 'flaticon-044-paint-bucket',
+                 'code' => "f12b"
+            ],
+            [
+                'class' => 'flaticon-045-video-player',
+                 'code' => "f12c"
+            ],
+            [
+                'class' => 'flaticon-046-laptop',
+                 'code' => "f12d"
+            ],
+            [
+                'class' => 'flaticon-047-artificial-intelligence',
+                 'code' => "f12e"
+            ],
+        ];
+        return view('service/ajoutService', compact('service', 'icones'));
     }
 
     /**
@@ -79,7 +148,76 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = Service::find($id);
-        return view('service/editService', compact('service'));
+        $icones = [
+            [
+                'class' => 'flaticon-050-satellite',
+                'code' => 'f131',
+            ],
+            [
+                'class' => 'flaticon-049-projector',
+                'code' => 'f130',
+            ],
+            [
+                'class' => 'flaticon-048-abstract',
+                'code' => 'f12f',
+            ],
+            [
+                'class' => 'flaticon-050-satellite',
+                'code' => 'f131',
+            ],
+            ['class' => 'flaticon-035-smartphone',
+                 'code' => "f122"
+            ],
+            [
+                'class' => 'flaticon-036-brainstorming',
+                 'code' => "f123"
+            ],
+            [
+                'class' => 'flaticon-037-idea',
+                 'code' => "f124"
+            ],
+            [
+                'class' => 'flaticon-038-graphic-tool-1',
+                 'code' => "f125"
+            ],
+            [
+                'class' => 'flaticon-039-vector',
+                 'code' => "f126"
+            ],
+            [
+                'class' => 'flaticon-040-rgb',
+                 'code' => "f127"
+            ],
+            [
+                'class' => 'flaticon-041-graphic-tool',
+                 'code' => "f128"
+            ],
+            [
+                'class' => 'flaticon-042-typography',
+                 'code' => "f129"
+            ],
+            [
+                'class' => 'flaticon-043-sketch',
+                 'code' => "f12a"
+            ],
+            [
+                'class' => 'flaticon-044-paint-bucket',
+                 'code' => "f12b"
+            ],
+            [
+                'class' => 'flaticon-045-video-player',
+                 'code' => "f12c"
+            ],
+            [
+                'class' => 'flaticon-046-laptop',
+                 'code' => "f12d"
+            ],
+            [
+                'class' => 'flaticon-047-artificial-intelligence',
+                 'code' => "f12e"
+            ],
+        ];
+        return view('service/editService', compact('service', 'icones'));
     }
 
     /**

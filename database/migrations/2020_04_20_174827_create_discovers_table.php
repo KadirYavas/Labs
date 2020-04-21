@@ -15,8 +15,8 @@ class CreateDiscoversTable extends Migration
     {
         Schema::create('discovers', function (Blueprint $table) {
             $table->id();
-            $table->char('textGauche')->nullable();
-            $table->char('textDroite')->nullable();
+            $table->text('textGauche')->nullable();
+            $table->text('textDroite')->nullable();
             $table->char('video')->nullable();
             $table->timestamps();
         });

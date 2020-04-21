@@ -14,7 +14,8 @@ class DiscoverController extends Controller
      */
     public function index()
     {
-        //
+        $discover = Discover::all();
+        return view('discover/bdd', compact('discover'));
     }
 
     /**
@@ -55,9 +56,22 @@ class DiscoverController extends Controller
      * @param  \App\Discover  $discover
      * @return \Illuminate\Http\Response
      */
-    public function edit(Discover $discover)
+    public function editVideo($id)
     {
-        //
+        $discover = Discover::find($id);
+        return view('discover/editVideo', compact('discover'));
+    }
+
+    public function editTexteGauche($id)
+    {
+        $discover = Discover::find($id);
+        return view('discover/editTexteGauche', compact('discover'));
+    }
+
+    public function editTexteDroite($id)
+    {
+        $discover = Discover::find($id);
+        return view('discover/editTexteDroite', compact('discover'));
     }
 
     /**
@@ -67,9 +81,44 @@ class DiscoverController extends Controller
      * @param  \App\Discover  $discover
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Discover $discover)
+    public function updateVideo(Request $request, $id)
     {
-        //
+        $request->validate([
+            'video' => 'required',
+        ]);
+
+        $discover = Discover::find($id);
+        $discover->video = $request->input('video');
+
+        $discover->save();
+
+        return redirect()->route('bddDiscover');
+    }
+    public function updateTexteGauche(Request $request, $id)
+    {
+        $request->validate([
+            'texteGauche' => 'required',
+        ]);
+
+        $discover = Discover::find($id);
+        $discover->texteGauche = $request->input('texteGauche');
+
+        $discover->save();
+
+        return redirect()->route('bddDiscover');
+    }
+    public function updateTexteDroite(Request $request, $id)
+    {
+        $request->validate([
+            'texteDroite' => 'required',
+        ]);
+
+        $discover = Discover::find($id);
+        $discover->texteDroite = $request->input('texteDroite');
+
+        $discover->save();
+
+        return redirect()->route('bddDiscover');
     }
 
     /**

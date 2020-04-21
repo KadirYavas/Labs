@@ -11,18 +11,27 @@
 <form action="{{route('envoiService')}}" method="post">
 @csrf
 
-<div class="d-flex justify-content-around">
-<input class="w-25 m-3 form-control @error('logo') is-invalid @enderror" value="@if($errors->first('logo'))@else{{old('logo')}}@endif" type="text" name="logo" id="" placeholder="Veuillez choisir un logo">
+<div>
+{{-- <input class="w-25 m-3 form-control @error('logo') is-invalid @enderror" value="@if($errors->first('logo'))@else{{old('logo')}}@endif" type="text" name="logo" id="" placeholder="Veuillez choisir un logo">
 @error('logo')
     <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+@enderror --}}
 
 {{-- <select class="form-control" name="logo" id="">
     <option value="">Choisir un icone...</option>
-    @foreach ($service as $item)
-        <option value="{{$item->id}}"><i class="{{$item->logo}}"></i></option>
+    @foreach ($icones as $item)
+        <option value="{{$item['class']}}"><i class="{{$item['code']}}"></i></option>
     @endforeach
 </select> --}}
+
+<div class="d-flex">
+@foreach ($icones as $item)
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="logo" value="{{$item['class']}}">
+        <label class="form-check-label"><i class="{{$item['class']}} fa-2x"></i></label>
+    </div>
+@endforeach
+</div>
 
 <input class="w-25 m-3 form-control @error('titre') is-invalid @enderror" value="@if($errors->first('titre'))@else{{old('titre')}}@endif" type="text" name="titre" id="" placeholder="Veuillez saisir un titre">
 @error('titre')

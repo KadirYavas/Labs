@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Header;
 use App\Carousel;
 use App\Service;
+use App\Discover;
 
 class WelcomeController extends Controller
 {
@@ -14,6 +15,7 @@ class WelcomeController extends Controller
         $carousel = Carousel::all();
         $service = Service::orderBy('id', 'desc')->take(3)->get();
         $serviceNeuf = Service::orderBy('id', 'desc')->take(9)->get();
-        return view('welcome', compact('header', 'carousel', 'service', 'serviceNeuf'));
+        $discover = Discover::all();
+        return view('welcome', compact('header', 'carousel', 'service', 'serviceNeuf', 'discover'));
     }
 }

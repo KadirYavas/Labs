@@ -233,6 +233,11 @@ return [
             'url'         => '/BDD-Service',
             'icon'        => 'fas fa-fw fa-share',
         ],
+        [
+            'text'        => 'Discover',
+            'url'         => '/BDD-Discover',
+            'icon'        => 'fas fa-file-alt',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

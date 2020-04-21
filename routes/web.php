@@ -41,7 +41,13 @@ Route::post('/StoreCarousel', 'HeaderController@store')->name('envoiCarousel');
 Route::get('/EditCarousel/{id}', 'HeaderController@editCarousel')->name('editCarousel');
 Route::post('/UpdateCarousel/{id}', 'HeaderController@updateCarousel')->name('updateCarousel');
 
-
+Route::get('/BDD-Discover', 'DiscoverController@index')->name('bddDiscover');
+Route::get('/EditVideo/{id}', 'DiscoverController@edit')->name('editVideo');
+Route::post('/UpdateVideo/{id}', 'DiscoverController@update')->name('updateVideo');
+Route::get('/EditTexteGauche/{id}', 'DiscoverController@editNav')->name('editTexteGauche');
+Route::post('/UpdateTexteGauche/{id}', 'DiscoverController@updateNav')->name('updateTexteGauche');
+Route::get('/EditTexteDroite/{id}', 'DiscoverController@editTexte')->name('editTexteDroite');
+Route::post('/UpdateTexteDroite/{id}', 'DiscoverController@updateTexte')->name('updateTexteDroite');
 
 
 

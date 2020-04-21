@@ -11,11 +11,20 @@
 <form action="{{route('updateService', $service->id)}}" method="post">
 @csrf
 
-<div class="d-flex flex-column align-items-center">
+{{-- <div class="d-flex flex-column align-items-center">
 <input class="w-50 m-3 form-control @error('logo') is-invalid @enderror" value="{{$service->logo}}" type="text" name="logo" id="">
 @error('logo')
     <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+@enderror --}}
+
+<div class="d-flex">
+    @foreach ($icones as $item)
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="logo" value="{{$item['class']}}">
+            <label class="form-check-label"><i class="{{$item['class']}} fa-2x"></i></label>
+        </div>
+    @endforeach
+    </div>
 
 <input class="w-50 m-3 form-control @error('titre') is-invalid @enderror" value="{{$service->titre}}" type="text" name="titre" id="">
 @error('titre')
@@ -33,3 +42,7 @@
 </form>
 
 @stop
+
+@section('css')
+<link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
+@endsection

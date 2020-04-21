@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(HeaderSeeder::class);
         $this->call(CarouselSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(DiscoverSeeder::class);
     }
 }
