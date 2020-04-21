@@ -11,7 +11,7 @@
     <!-- slider -->
     <div id="hero-slider" class="owl-carousel">
         @foreach ($carousel as $item) 
-            <div class="item hero-item" data-bg="{{asset('img/'.$item->image)}}"></div>
+            <div class="item hero-item" data-bg="{{asset('storage/'.$item->image)}}"></div>
             {{-- <div class="item hero-item" data-bg="{{asset('img/02.jpg')}}"></div> --}}
         @endforeach
     </div>

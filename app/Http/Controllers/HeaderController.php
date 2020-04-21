@@ -28,7 +28,7 @@ class HeaderController extends Controller
      */
     public function create()
     {
-        //
+        return view('header/addCarousel');
     }
 
     /**
@@ -39,7 +39,17 @@ class HeaderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'required|file',
+        ]);
+
+        $image = Storage::disk('public')->put('', $request->file('image'));
+
+        $headerCarousel = new Carousel();
+        $headerCarousel->image = $image;
+        $headerCarousel->save();
+
+        return redirect()->route('bddHeader');
     }
 
     /**
@@ -100,7 +110,7 @@ class HeaderController extends Controller
 
         $header->save();
 
-        return redirect()->route('welcome');
+        return redirect()->route('bddHeader');
     }
     public function updateNav(Request $request, $id)
     {
@@ -119,7 +129,7 @@ class HeaderController extends Controller
 
         $headerNav->save();
 
-        return redirect()->route('welcome');
+        return redirect()->route('bddHeader');
     }
     public function updateCarousel(Request $request, $id)
     {
@@ -134,7 +144,7 @@ class HeaderController extends Controller
 
         $headerCarousel->save();
 
-        return redirect()->route('welcome');
+        return redirect()->route('bddHeader');
     }
     public function updateTexte(Request $request, $id)
     {
@@ -147,7 +157,7 @@ class HeaderController extends Controller
 
         $headerTexte->save();
 
-        return redirect()->route('welcome');
+        return redirect()->route('bddHeader');
     }
 
     /**

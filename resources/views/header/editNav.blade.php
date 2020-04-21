@@ -4,30 +4,36 @@
 
 @section('content')
 
+<div class="text-center mb-4">
+    <h2>Editez les noms de la barre de recherche</h2>
+</div>
+
 <form action="{{route('updateNav', $headerNav->id)}}" method="post">
 @csrf
 
-<input class="form-control @error('navUn') is-invalid @enderror" value="@if($errors->first($headerNav->navUn))@else{{old($headerNav->navUn)}}@endif" type="text" name="navUn" id="">
+<div class="d-flex flex-column align-items-center">
+<input class="w-25 m-2 form-control @error('navUn') is-invalid @enderror" value="{{$headerNav->navUn}}" type="text" name="navUn" id="">
 @error('navUn')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
 
-<input class="form-control @error('navDeux') is-invalid @enderror" value="@if($errors->first($headerNav->navDeux))@else{{old($headerNav->navDeux)}}@endif" type="text" name="navDeux" id="">
+<input class="w-25 m-2 form-control @error('navDeux') is-invalid @enderror" value="{{$headerNav->navDeux}}" type="text" name="navDeux" id="">
 @error('navDeux')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
 
-<input class="form-control @error('navTrois') is-invalid @enderror" value="@if($errors->first($headerNav->navTrois))@else{{old($headerNav->navTrois)}}@endif" type="text" name="navTrois" id="">
+<input class="w-25 m-2 form-control @error('navTrois') is-invalid @enderror" value="{{$headerNav->navTrois}}" type="text" name="navTrois" id="">
 @error('navTrois')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
 
-<input class="form-control @error('navQuatre') is-invalid @enderror" value="@if($errors->first($headerNav->navQuatre))@else{{old($headerNav->navQuatre)}}@endif" type="text" name="navQuatre" id="">
+<input class="w-25 m-2 form-control @error('navQuatre') is-invalid @enderror" value="{{$headerNav->navQuatre}}" type="text" name="navQuatre" id="">
 @error('navQuatre')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
+</div>
 
-<button class="btn btn-danger" type="submit">Editez les noms</button>
+<div class="text-center m-4"><button class="btn btn-danger" type="submit">Editez les noms</button></div>
 
 </form>
 

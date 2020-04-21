@@ -16,7 +16,8 @@ class ServiceController extends Controller
     public function index()
     {
         $header = Header::all();
-        return view('service', compact('header'));
+        $serviceNeuf = Service::orderBy('id', 'desc')->take(9)->get();
+        return view('service', compact('header', 'serviceNeuf'));
     }
     public function indexBDD()
     {
@@ -31,6 +32,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
+        $service = Service::all();
         return view('service/ajoutService', compact('service'));
     }
 

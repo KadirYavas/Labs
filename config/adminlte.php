@@ -231,7 +231,7 @@ return [
         [
             'text'        => 'Service',
             'url'         => '/BDD-Service',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-fw fa-share',
         ],
         ['header' => 'account_settings'],
         [

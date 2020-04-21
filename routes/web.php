@@ -17,7 +17,7 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 
 Route::get('/Service', 'ServiceController@index')->name('service');
 Route::get('/BDD-Service', 'ServiceController@indexBDD')->name('ServiceBDD');
-Route::get('/EnvoiService', 'ServiceController@create')->name('createService');
+Route::get('/EnvoiService', 'ServiceController@create')->name('addService');
 Route::post('/StoreService', 'ServiceController@store')->name('envoiService');
 Route::get('/EditService/{id}', 'ServiceController@edit')->name('editService');
 Route::post('/UpdateService/{id}', 'ServiceController@update')->name('updateService');
@@ -33,10 +33,13 @@ Route::get('/EditLogoHeader/{id}', 'HeaderController@edit')->name('editLogoHeade
 Route::post('/UpdateLogoHeader/{id}', 'HeaderController@update')->name('updateLogoHeader');
 Route::get('/EditNav/{id}', 'HeaderController@editNav')->name('editNav');
 Route::post('/UpdateNav/{id}', 'HeaderController@updateNav')->name('updateNav');
-Route::get('/EditCarousel/{id}', 'HeaderController@editCarousel')->name('editCarousel');
-Route::post('/UpdateCarousel/{id}', 'HeaderController@updateCarousel')->name('updateCarousel');
 Route::get('/EditTexte/{id}', 'HeaderController@editTexte')->name('editTexte');
 Route::post('/UpdateTexte/{id}', 'HeaderController@updateTexte')->name('updateTexte');
+
+Route::get('/EnvoiCarousel', 'HeaderController@create')->name('addCarousel');
+Route::post('/StoreCarousel', 'HeaderController@store')->name('envoiCarousel');
+Route::get('/EditCarousel/{id}', 'HeaderController@editCarousel')->name('editCarousel');
+Route::post('/UpdateCarousel/{id}', 'HeaderController@updateCarousel')->name('updateCarousel');
 
 
 
