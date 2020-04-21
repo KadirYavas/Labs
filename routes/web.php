@@ -42,12 +42,12 @@ Route::get('/EditCarousel/{id}', 'HeaderController@editCarousel')->name('editCar
 Route::post('/UpdateCarousel/{id}', 'HeaderController@updateCarousel')->name('updateCarousel');
 
 Route::get('/BDD-Discover', 'DiscoverController@index')->name('bddDiscover');
-Route::get('/EditVideo/{id}', 'DiscoverController@edit')->name('editVideo');
-Route::post('/UpdateVideo/{id}', 'DiscoverController@update')->name('updateVideo');
-Route::get('/EditTexteGauche/{id}', 'DiscoverController@editNav')->name('editTexteGauche');
-Route::post('/UpdateTexteGauche/{id}', 'DiscoverController@updateNav')->name('updateTexteGauche');
-Route::get('/EditTexteDroite/{id}', 'DiscoverController@editTexte')->name('editTexteDroite');
-Route::post('/UpdateTexteDroite/{id}', 'DiscoverController@updateTexte')->name('updateTexteDroite');
+Route::get('/EditVideo/{id}', 'DiscoverController@editVideo')->name('editVideo');
+Route::post('/UpdateVideo/{id}', 'DiscoverController@updateVideo')->name('updateVideo');
+Route::get('/EditTexteGauche/{id}', 'DiscoverController@editTexteGauche')->name('editTexteGauche');
+Route::post('/UpdateTexteGauche/{id}', 'DiscoverController@updateTexteGauche')->name('updateTexteGauche');
+Route::get('/EditTexteDroite/{id}', 'DiscoverController@editTexteDroite')->name('editTexteDroite');
+Route::post('/UpdateTexteDroite/{id}', 'DiscoverController@updateTexteDroite')->name('updateTexteDroite');
 
 
 

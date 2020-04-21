@@ -24,9 +24,9 @@
     @endforeach
 </select> --}}
 
-<div class="d-flex">
+<div class="row">
 @foreach ($icones as $item)
-    <div class="form-check">
+    <div class="form-check col-2">
         <input class="form-check-input" type="radio" name="logo" value="{{$item['class']}}">
         <label class="form-check-label"><i class="{{$item['class']}} fa-2x"></i></label>
     </div>

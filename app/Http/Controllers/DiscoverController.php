@@ -101,7 +101,7 @@ class DiscoverController extends Controller
         ]);
 
         $discover = Discover::find($id);
-        $discover->texteGauche = $request->input('texteGauche');
+        $discover->textGauche = $request->input('texteGauche');
 
         $discover->save();
 
@@ -114,7 +114,7 @@ class DiscoverController extends Controller
         ]);
 
         $discover = Discover::find($id);
-        $discover->texteDroite = $request->input('texteDroite');
+        $discover->textDroite = $request->input('texteDroite');
 
         $discover->save();
 

@@ -12,7 +12,7 @@
 @csrf
 
 <div class="d-flex justify-content-around">
-<input class="w-25 form-control @error('video') is-invalid @enderror" value="{{$discover->video}}" type="text" name="video" id="">
+<input class="w-50 form-control @error('video') is-invalid @enderror" value="{{$discover->video}}" type="text" name="video" id="">
 @error('video')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror

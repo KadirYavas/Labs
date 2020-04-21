@@ -12,7 +12,7 @@
 @csrf
 
 <div class="d-flex justify-content-around">
-<input class="w-25 form-control @error('texteDroite') is-invalid @enderror" value="{{$discover->texteDroite}}" type="text" name="texteDroite" id="">
+<textarea class="w-75 form-control @error('texteDroite') is-invalid @enderror" type="text" name="texteDroite" id="" rows="5" cols="40">{{$discover->textDroite}}</textarea>
 @error('texteDroite')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
