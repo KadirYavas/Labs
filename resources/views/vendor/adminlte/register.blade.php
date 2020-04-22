@@ -29,7 +29,7 @@
         <div class="card">
             <div class="card-body register-card-body">
             <p class="login-box-msg">{{ __('adminlte::adminlte.register_message') }}</p>
-            <form action="{{ $register_url }}" method="post">
+            <form action="{{ $register_url }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <div class="input-group mb-3">
@@ -86,6 +86,20 @@
                     @if ($errors->has('password_confirmation'))
                         <div class="invalid-feedback">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
+                        </div>
+                    @endif
+                </div>
+                <div class="input-group mb-3">
+                    <input type="file" name="photo" class="form-control {{ $errors->has('photo') ? 'is-invalid' : '' }}"
+                           placeholder="{{ __('adminlte::adminlte.photo') }}">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-picture-o"></span>
+                        </div>
+                    </div>
+                    @if ($errors->has('photo'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('photo') }}</strong>
                         </div>
                     @endif
                 </div>

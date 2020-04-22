@@ -1,5 +1,11 @@
 <!-- Footer section -->
 <footer class="footer-section">
-    <h2>2017 All rights reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></h2>
+    @foreach ($footer as $item) 
+        @if ($item->position == 1)
+            <h2>{{$item->texte}} <a href="{{$item->lien}}" target="_blank">Colorlib</a></h2>
+        @else
+            <h2><a href="{{$item->lien}}" target="_blank">Colorlib</a> {{$item->texte}} </h2>
+        @endif
+    @endforeach
 </footer>
 <!-- Footer section end -->

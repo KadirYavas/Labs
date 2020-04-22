@@ -59,6 +59,19 @@ Route::get('/BDD-Ready', 'ReadiesController@index')->name('bddReadies');
 Route::get('/EditReady/{id}', 'ReadiesController@edit')->name('editReadies');
 Route::post('/UpdateReady/{id}', 'ReadiesController@update')->name('updateReadies');
 
+Route::get('/BDD-Footer', 'FooterController@index')->name('bddFooter');
+Route::get('/EditFooter/{id}', 'FooterController@edit')->name('editFooter');
+Route::post('/UpdateFooter/{id}', 'FooterController@update')->name('updateFooter');
+
+Route::get('/BDD-Testimonial', 'TestimonialController@index')->name('bddTestimonial');
+Route::get('/EnvoiTestimonial', 'TestimonialController@create')->name('addTestimonial');
+Route::post('/StoreTestimonial', 'TestimonialController@store')->name('envoiTestimonial');
+Route::get('/EditTestimonial/{id}', 'TestimonialController@edit')->name('editTestimonial');
+Route::post('/UpdateTestimonial/{id}', 'TestimonialController@update')->name('updateTestimonial');
+Route::get('/DestroyTestimonial/{id}', 'TestimonialController@destroy')->name('destroyTestimonial');
+
+
+
 
 
 

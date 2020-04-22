@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
@@ -14,7 +15,8 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        //
+        $testimonial = Testimonial::all();
+        return view('testimonial/bdd', compact('testimonial'));
     }
 
     /**
@@ -24,7 +26,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('testimonial/addTestimonial');
     }
 
     /**
@@ -35,7 +37,25 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'fonction' => 'required|max:50',
+            'texte' => 'required|max:250|min:3',
+            'image' => 'required|file',
+        ]);
+
+        $photo = Storage::disk('public')->put('', $request->file('image'));
+
+        $testimonial = new Testimonial();
+        $testimonial->nom = $request->input('nom');
+        $testimonial->prenom = $request->input('prenom');
+        $testimonial->fonction = $request->input('fonction');
+        $testimonial->texte = $request->input('texte');
+        $testimonial->image = $photo;
+        $testimonial->save();
+
+        return redirect()->route('bddTestimonial');
     }
 
     /**
@@ -55,9 +75,10 @@ class TestimonialController extends Controller
      * @param  \App\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function edit(Testimonial $testimonial)
+    public function edit($id)
     {
-        //
+        $testimonial = Testimonial::find($id);
+        return view('testimonial/editTestimonial', compact('testimonial'));
     }
 
     /**
@@ -67,9 +88,27 @@ class TestimonialController extends Controller
      * @param  \App\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testimonial $testimonial)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'fonction' => 'required|max:50',
+            'texte' => 'required|max:250|min:3',
+            'image' => 'required|file',
+        ]);
+
+        $photo = Storage::disk('public')->put('', $request->file('image'));
+
+        $testimonial = Testimonial::find($id);
+        $testimonial->nom = $request->input('nom');
+        $testimonial->prenom = $request->input('prenom');
+        $testimonial->fonction = $request->input('fonction');
+        $testimonial->texte = $request->input('texte');
+        $testimonial->image = $photo;
+        $testimonial->save();
+
+        return redirect()->route('bddTestimonial');
     }
 
     /**
@@ -78,8 +117,10 @@ class TestimonialController extends Controller
      * @param  \App\Testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy($id)
     {
-        //
+        $testimonial = Testimonial::find($id);
+        $testimonial->delete();
+        return redirect()->route('bddTestimonial');
     }
 }

@@ -14,7 +14,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        //
+        $footer = Footer::all();
+        return view('footer/bdd', compact('footer'));
     }
 
     /**
@@ -55,9 +56,10 @@ class FooterController extends Controller
      * @param  \App\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Footer $footer)
+    public function edit($id)
     {
-        //
+        $footer = Footer::find($id);
+        return view('footer/editFooter', compact('footer'));
     }
 
     /**
@@ -67,9 +69,21 @@ class FooterController extends Controller
      * @param  \App\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Footer $footer)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'texte' => 'required|max:50|min:5',
+            'lien' => 'required',
+        ]);
+
+        $footer = Footer::find($id);
+        $footer->texte = $request->input('texte');
+        $footer->lien = $request->input('lien');
+        $footer->position = $request->input('position');
+
+        $footer->save();
+
+        return redirect()->route('bddFooter');
     }
 
     /**

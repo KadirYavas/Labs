@@ -9,18 +9,17 @@
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
                     <!-- single testimonial -->
-                    @foreach ($user as $item)
+                    @foreach ($testimonial as $item)
                         <div class="testimonial">
                             <span>‘​‌‘​‌</span>
-                            <p>{{$item->description}}</p>
+                            <p>{{$item->texte}}</p>
                             <div class="client-info">
                                 <div class="avatar">
-                                    <img src="{{'storage/'.$item->photo}}" alt="">
+                                    <img src="{{'storage/'.$item->image}}" alt="">
                                 </div>
                                 <div class="client-name">
-                                    <h2>{{$item->name}}</h2>
-                                    <p>{{$roles->where('id',$item->roles_id)->first()->role
-                                    }}</p>
+                                    <h2>{{$item->prenom}} {{$item->nom}}</h2>
+                                    <p>{{$item->fonction}}</p>
                                 </div>
                             </div>
                         </div>

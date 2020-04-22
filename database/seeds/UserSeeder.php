@@ -16,7 +16,6 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 1,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo' => '003.jpg',
         ]);
         DB::table('users')->insert([
@@ -24,7 +23,6 @@ class UserSeeder extends Seeder
             'email' => 'mkdir@mkdir.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 4,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo' => '002.jpg',
         ]);
         DB::table('users')->insert([
@@ -32,8 +30,21 @@ class UserSeeder extends Seeder
             'email' => 'iron@iron.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 10,
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo' => '001.jpg',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Webmaster',
+            'email' => 'web@web.com',
+            'password' => Hash::make('123456789'),
+            'roles_id' => 2,
+            'photo' => '001.jpg',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Sales Supervisor',
+            'email' => 'sales@sales.com',
+            'password' => Hash::make('123456789'),
+            'roles_id' => 9,
+            'photo' => '002.jpg',
         ]);
     }
 }

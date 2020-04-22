@@ -253,6 +253,16 @@ return [
             'url'         => '/BDD-Ready',
             'icon'        => 'fas fa-heading',
         ],
+        [
+            'text'        => 'Footer',
+            'url'         => '/BDD-Footer',
+            'icon'        => 'fas fa-shoe-prints',
+        ],
+        [
+            'text'        => 'Testimonial',
+            'url'         => '/BDD-Testimonial',
+            'icon'        => 'fas fa-users',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
