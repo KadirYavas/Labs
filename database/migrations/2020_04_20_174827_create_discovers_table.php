@@ -18,6 +18,7 @@ class CreateDiscoversTable extends Migration
             $table->text('textGauche')->nullable();
             $table->text('textDroite')->nullable();
             $table->char('video')->nullable();
+            $table->char('bouton')->nullable();
             $table->timestamps();
         });
     }

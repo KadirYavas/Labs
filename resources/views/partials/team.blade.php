@@ -7,14 +7,36 @@
         </div>
         <div class="row">
             <!-- single member -->
-            <div class="col-sm-4">
-                <div class="member">
-                    <img src="img/team/1.jpg" alt="">
-                    <h2>Christinne Williams</h2>
-                    <h3>Project Manager</h3>
-                </div>
-            </div>
-            <!-- single member -->
+            @foreach ($users as $index=>$user)
+                    @if ($index==0)
+                    <!-- single member -->
+                    <div class="col-sm-4">
+                        <div class="member">
+                            <img src="{{'storage/'.$user->photo}}" alt="">
+                            <h2>{{$user->name}}</h2>
+                            <h3>{{$user->role->role}}</h3>
+                        </div>
+                    </div>
+                    <!-- single member -->
+                    <div class="col-sm-4">
+                        <div class="member">
+                            <img src="{{'storage/'.$ceo->photo}}" alt="">
+                            <h2>{{$ceo->name}}</h2>
+                            <h3>{{$ceo->role->role}}</h3>
+                        </div>
+                    </div>
+                    @else
+                        <!-- single member -->
+                        <div class="col-sm-4">
+                        <div class="member">
+                            <img src="{{'storage/'.$user->photo}}" alt="">
+                            <h2>{{$user->name}}</h2>
+                            <h3>{{$user->role->role}}</h3>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            {{-- <!-- single member -->
             <div class="col-sm-4">
                 <div class="member">
                     <img src="img/team/2.jpg" alt="">
@@ -29,7 +51,7 @@
                     <h2>Christinne Williams</h2>
                     <h3>Digital designer</h3>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

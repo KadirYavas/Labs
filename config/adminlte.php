@@ -239,6 +239,11 @@ return [
             'icon'        => 'fas fa-file-alt',
         ],
         [
+            'text'        => 'Formulaire',
+            'url'         => '/BDD-Form',
+            'icon'        => 'fas fa-paragraph',
+        ],
+        [
             'text'        => 'Contact',
             'url'         => '/BDD-Contact',
             'icon'        => 'fas fa-id-card',
@@ -261,6 +266,11 @@ return [
         [
             'text'        => 'Testimonial',
             'url'         => '/BDD-Testimonial',
+            'icon'        => 'fas fa-users',
+        ],
+        [
+            'text'        => 'Users',
+            'url'         => '/BDD-Users',
             'icon'        => 'fas fa-users',
         ],
         ['header' => 'account_settings'],

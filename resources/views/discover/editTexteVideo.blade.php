@@ -32,6 +32,18 @@
         @enderror
         </div>
 
+        <div class="d-flex justify-content-around mb-3">
+            <select class="form-control w-25" name="bouton" id="">
+                <option value="">Choisir la position</option>
+                <option value="false">Ne pas afficher</option>
+                <option value="true">Afficher</option>
+            </select>
+            {{-- <input class="w-75 form-control @error('position') is-invalid @enderror" type="text" name="position" id="" rows="5" cols="40" value="{{$footer->position}}">
+            @error('position')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror --}}
+            </div>
+
 <div class="text-center m-4"><button class="btn btn-danger" type="submit">Editez le texte & la vidéo</button></div>
 
 </form>

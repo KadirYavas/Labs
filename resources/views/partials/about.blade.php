@@ -39,7 +39,11 @@
                     </div>
                 </div>
                 <div class="text-center mt60">
-                    <a href="{{route('contact')}}" class="site-btn">Browse</a>
+                    @if ($item->bouton == 1) 
+                        <a href="{{route('contact')}}" class="site-btn">Browse</a>
+                    @else
+                        
+                    @endif
                 </div>
                 <!-- popup video -->
                 <div class="intro-video">

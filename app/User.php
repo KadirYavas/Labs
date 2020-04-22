@@ -15,6 +15,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function role() {
+        return $this->belongsTo('App\Role', 'roles_id');
+    }
+
     protected $fillable = [
         'name', 'email', 'password', 'roles_id', 'photo'
     ];

@@ -82,7 +82,8 @@ class DiscoverController extends Controller
         $discover = Discover::find($id);
         $discover->textDroite = $request->input('texteDroite');
         $discover->textGauche = $request->input('texteGauche');
-        $discover->video = $request->input('tvideo');
+        $discover->video = $request->input('video');
+        $discover->bouton = $request->input('bouton');
 
         $discover->save();
 

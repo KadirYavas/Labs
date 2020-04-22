@@ -90,11 +90,10 @@
                     @endif
                 </div>
                 <div class="input-group mb-3">
-                    <input type="file" name="photo" class="form-control {{ $errors->has('photo') ? 'is-invalid' : '' }}"
-                           placeholder="{{ __('adminlte::adminlte.photo') }}">
+                    <input type="file" name="photo" class="form-control {{ $errors->has('photo') ? 'is-invalid' : '' }}">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-picture-o"></span>
+                            <span class="fas fa-image"></span>
                         </div>
                     </div>
                     @if ($errors->has('photo'))

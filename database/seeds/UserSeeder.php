@@ -16,35 +16,63 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 1,
-            'photo' => '003.jpg',
+            'photo' => '3.jpg',
         ]);
         DB::table('users')->insert([
             'name' => 'Mkdir',
             'email' => 'mkdir@mkdir.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 4,
-            'photo' => '002.jpg',
+            'photo' => '2.jpg',
         ]);
         DB::table('users')->insert([
             'name' => 'Iron Man',
             'email' => 'iron@iron.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 10,
-            'photo' => '001.jpg',
+            'photo' => '1.jpg',
         ]);
         DB::table('users')->insert([
             'name' => 'Webmaster',
             'email' => 'web@web.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 2,
-            'photo' => '001.jpg',
+            'photo' => '1.jpg',
         ]);
         DB::table('users')->insert([
             'name' => 'Sales Supervisor',
             'email' => 'sales@sales.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 9,
-            'photo' => '002.jpg',
+            'photo' => '2.jpg',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Community Manager',
+            'email' => 'com@com.com',
+            'password' => Hash::make('123456789'),
+            'roles_id' => 8,
+            'photo' => '3.jpg',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Project Manager',
+            'email' => 'pro@pro.com',
+            'password' => Hash::make('123456789'),
+            'roles_id' => 5,
+            'photo' => '2.jpg',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Spider Man',
+            'email' => 'spider@spider.com',
+            'password' => Hash::make('123456789'),
+            'roles_id' => 10,
+            'photo' => '1.jpg',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Super Man',
+            'email' => 'super@super.com',
+            'password' => Hash::make('123456789'),
+            'roles_id' => 10,
+            'photo' => '2.jpg',
         ]);
     }
 }

@@ -13,6 +13,7 @@ use App\Contact;
 use App\Titre;
 use App\Readies;
 use App\Footer;
+use App\User;
 
 class WelcomeController extends Controller
 {
@@ -28,6 +29,8 @@ class WelcomeController extends Controller
         $titres = Titre::first();
         $readies = Readies::all();
         $footer = Footer::all();
-        return view('welcome', compact('header', 'carousel', 'service', 'serviceNeuf', 'discover', 'testimonial', 'roles', 'contact', 'titres', 'readies', 'footer'));
+        $ceo = User::where('roles_id', '=', '4')->first();
+        $users = User::inRandomOrder('')->where('roles_id', '!=', '4')->where('roles_id', '!=', '1')->where('roles_id', '!=', '10')->take(2)->get();
+        return view('welcome', compact('header', 'carousel', 'service', 'serviceNeuf', 'discover', 'testimonial', 'roles', 'contact', 'titres', 'readies', 'footer', 'users', 'ceo'));
     }
 }

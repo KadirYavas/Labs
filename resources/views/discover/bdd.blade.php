@@ -13,6 +13,7 @@
         <th>Texte de gauche</th>
         <th>Texte de droite</th>
         <th>Vidéo</th>
+        <th>Affichage: <br>True(1) = Afficher <br>False(0) = Non-Affiché</th>
         <th>Actions: Edit</th>
     </tr>
     </thead>
@@ -23,6 +24,7 @@
             <td>{{ $item->textGauche }}</td>
             <td>{{ $item->textDroite }}</td>
             <td><a href="{{ $item->video }}">Lien de la vidéo</a></td>
+            <td>{{$item->bouton}}</td>
             <td class="d-flex">
                 <a href="{{route('editTexteVideo', $item->id)}}"><button class="btn btn-outline-primary m-1">Modifier le texte & vidéo</button></a>
             </td>

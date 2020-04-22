@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
+Route::get('/BDD-Form', 'FormulaireController@index')->name('bddForm');
 Route::post('/messageSend', 'FormulaireController@store')->name('email');
 
 Route::get('/Service', 'ServiceController@index')->name('service');
@@ -70,8 +71,9 @@ Route::get('/EditTestimonial/{id}', 'TestimonialController@edit')->name('editTes
 Route::post('/UpdateTestimonial/{id}', 'TestimonialController@update')->name('updateTestimonial');
 Route::get('/DestroyTestimonial/{id}', 'TestimonialController@destroy')->name('destroyTestimonial');
 
-
-
+Route::get('BDD-Users', 'UserController@index')->name('bddUser');
+Route::get('/EditUser/{id}', 'UserController@edit')->name('editUser');
+Route::post('/UpdateUser/{id}', 'UserController@update')->name('updateUser');
 
 
 

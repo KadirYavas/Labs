@@ -18,7 +18,8 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        //
+        $form = Formulaire::all();
+        return view('form/bdd', compact('form'));
     }
 
     /**
@@ -63,7 +64,7 @@ class FormulaireController extends Controller
         
         Mail::to($email)->send(new FormMail($name, $email, $subject, $message));
 
-        return redirect()->to(app('url')->previous() . '#con_form')->with('newsletter', 'sent');;
+        return redirect()->to(app('url')->previous() . '#con_form')->with('newsletter', 'sent');
     }
 
     /**
