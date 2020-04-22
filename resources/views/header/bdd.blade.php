@@ -47,7 +47,7 @@
     <tr>
         <th>ID</th>
         <th>Image Carousel</th>
-        <th>Actions: Edit</th>
+        <th>Actions: Edit & Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -57,6 +57,7 @@
             <td><img src="{{ 'storage/'.$item->image }}" width="200px" alt=""></td>
             <td>
                 <a href="{{route('editCarousel', $item->id)}}"><button class="btn btn-outline-danger m-1">Modifier</button></a>
+                <a href="{{route('destroyCarousel', $item->id)}}"><button class="btn btn-outline-success m-1">Delete</button></a>
             </td>
         </tr>
     @endforeach

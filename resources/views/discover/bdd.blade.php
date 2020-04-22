@@ -24,9 +24,7 @@
             <td>{{ $item->textDroite }}</td>
             <td><a href="{{ $item->video }}">Lien de la vidéo</a></td>
             <td class="d-flex">
-                <a href="{{route('editTexteGauche', $item->id)}}"><button class="btn btn-outline-info m-1">Modifier le texte de gauche</button></a>
-                <a href="{{route('editTexteDroite', $item->id)}}"><button class="btn btn-outline-primary m-1">Modifier le texte de droite</button></a>
-                <a href="{{route('editVideo', $item->id)}}"><button class="btn btn-outline-danger m-1">Modifier la vidéo</button></a>
+                <a href="{{route('editTexteVideo', $item->id)}}"><button class="btn btn-outline-primary m-1">Modifier le texte de droite</button></a>
             </td>
         </tr>
     @endforeach

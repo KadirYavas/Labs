@@ -56,22 +56,11 @@ class DiscoverController extends Controller
      * @param  \App\Discover  $discover
      * @return \Illuminate\Http\Response
      */
-    public function editVideo($id)
-    {
-        $discover = Discover::find($id);
-        return view('discover/editVideo', compact('discover'));
-    }
 
-    public function editTexteGauche($id)
+    public function editTexteVideo($id)
     {
         $discover = Discover::find($id);
-        return view('discover/editTexteGauche', compact('discover'));
-    }
-
-    public function editTexteDroite($id)
-    {
-        $discover = Discover::find($id);
-        return view('discover/editTexteDroite', compact('discover'));
+        return view('discover/editTexteVideo', compact('discover'));
     }
 
     /**
@@ -81,40 +70,19 @@ class DiscoverController extends Controller
      * @param  \App\Discover  $discover
      * @return \Illuminate\Http\Response
      */
-    public function updateVideo(Request $request, $id)
+
+    public function updateTexteVideo(Request $request, $id)
     {
         $request->validate([
+            'texteDroite' => 'required',
+            'texteGauche' => 'required',
             'video' => 'required',
         ]);
 
         $discover = Discover::find($id);
-        $discover->video = $request->input('video');
-
-        $discover->save();
-
-        return redirect()->route('bddDiscover');
-    }
-    public function updateTexteGauche(Request $request, $id)
-    {
-        $request->validate([
-            'texteGauche' => 'required',
-        ]);
-
-        $discover = Discover::find($id);
-        $discover->textGauche = $request->input('texteGauche');
-
-        $discover->save();
-
-        return redirect()->route('bddDiscover');
-    }
-    public function updateTexteDroite(Request $request, $id)
-    {
-        $request->validate([
-            'texteDroite' => 'required',
-        ]);
-
-        $discover = Discover::find($id);
         $discover->textDroite = $request->input('texteDroite');
+        $discover->textGauche = $request->input('texteGauche');
+        $discover->video = $request->input('tvideo');
 
         $discover->save();
 

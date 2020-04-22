@@ -243,6 +243,16 @@ return [
             'url'         => '/BDD-Contact',
             'icon'        => 'fas fa-id-card',
         ],
+        [
+            'text'        => 'Titre',
+            'url'         => '/BDD-Titre',
+            'icon'        => 'fas fa-paragraph',
+        ],
+        [
+            'text'        => 'Ready',
+            'url'         => '/BDD-Ready',
+            'icon'        => 'fas fa-heading',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

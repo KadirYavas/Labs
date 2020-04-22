@@ -10,6 +10,8 @@ use App\Discover;
 use App\User;
 use App\Role;
 use App\Contact;
+use App\Titre;
+use App\Readies;
 
 class WelcomeController extends Controller
 {
@@ -22,6 +24,8 @@ class WelcomeController extends Controller
         $user = User::all();
         $roles = Role::all();
         $contact = Contact::all();
-        return view('welcome', compact('header', 'carousel', 'service', 'serviceNeuf', 'discover', 'user', 'roles', 'contact'));
+        $titres = Titre::first();
+        $readies = Readies::all();
+        return view('welcome', compact('header', 'carousel', 'service', 'serviceNeuf', 'discover', 'user', 'roles', 'contact', 'titres', 'readies'));
     }
 }

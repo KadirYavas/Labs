@@ -166,8 +166,10 @@ class HeaderController extends Controller
      * @param  \App\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Header $header)
+    public function destroy($id)
     {
-        //
+        $carousel = Carousel::find($id);
+        $carousel->delete();
+        return redirect()->route('bddHeader');
     }
 }

@@ -6,7 +6,7 @@
             @foreach ($contact as $item)
                 <div class="col-md-5 col-md-offset-1 contact-info col-push">
                     <div class="section-title left">
-                        <h2>Contact us</h2>
+                        <h2>{!! App\Helper\Color::green($titres->titreContact) !!}</h2>
                     </div>
                     <p>{{$item->description}} </p>
                     <h3 class="mt60">Main Office</h3>

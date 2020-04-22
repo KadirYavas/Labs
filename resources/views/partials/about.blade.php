@@ -28,7 +28,7 @@
         @foreach ($discover as $item)
             <div class="container">
                 <div class="section-title">
-                    <h2>Get in <span>the Lab</span> and discover the world</h2>
+                    <h2>{!! App\Helper\Color::green($titres->titreDiscover) !!}</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-6">

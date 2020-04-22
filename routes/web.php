@@ -45,17 +45,19 @@ Route::get('/EnvoiCarousel', 'HeaderController@create')->name('addCarousel');
 Route::post('/StoreCarousel', 'HeaderController@store')->name('envoiCarousel');
 Route::get('/EditCarousel/{id}', 'HeaderController@editCarousel')->name('editCarousel');
 Route::post('/UpdateCarousel/{id}', 'HeaderController@updateCarousel')->name('updateCarousel');
+Route::get('/DestroyCarousel/{id}', 'HeaderController@destroy')->name('destroyCarousel');
 
 Route::get('/BDD-Discover', 'DiscoverController@index')->name('bddDiscover');
-Route::get('/EditVideo/{id}', 'DiscoverController@editVideo')->name('editVideo');
-Route::post('/UpdateVideo/{id}', 'DiscoverController@updateVideo')->name('updateVideo');
-Route::get('/EditTexteGauche/{id}', 'DiscoverController@editTexteGauche')->name('editTexteGauche');
-Route::post('/UpdateTexteGauche/{id}', 'DiscoverController@updateTexteGauche')->name('updateTexteGauche');
-Route::get('/EditTexteDroite/{id}', 'DiscoverController@editTexteDroite')->name('editTexteDroite');
-Route::post('/UpdateTexteDroite/{id}', 'DiscoverController@updateTexteDroite')->name('updateTexteDroite');
+Route::get('/EditTexteVideo/{id}', 'DiscoverController@editTexteVideo')->name('editTexteVideo');
+Route::post('/UpdateTexteVideo/{id}', 'DiscoverController@updateTexteVideo')->name('updateTexteVideo');
 
+Route::get('/BDD-Titre', 'TitreController@index')->name('bddTitre');
+Route::get('/EditTitre/{id}', 'TitreController@edit')->name('editTitre');
+Route::post('/UpdateTitre/{id}', 'TitreController@update')->name('updateTitre');
 
-
+Route::get('/BDD-Ready', 'ReadiesController@index')->name('bddReadies');
+Route::get('/EditReady/{id}', 'ReadiesController@edit')->name('editReadies');
+Route::post('/UpdateReady/{id}', 'ReadiesController@update')->name('updateReadies');
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Header;
+use App\Titre;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -16,12 +17,14 @@ class ArticleController extends Controller
     public function index()
     {
         $header = Header::all();
-        return view('blog', compact('header'));
+        $titres = Titre::first();
+        return view('blog', compact('header', 'titres'));
     }
     public function indexDeux()
     {
         $header = Header::all();
-        return view('blogPost', compact('header'));
+        $titres = Titre::first();
+        return view('blogPost', compact('header' ,'titres'));
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use App\Header;
+use App\Contact;
+use App\Titre;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -17,7 +19,9 @@ class ServiceController extends Controller
     {
         $header = Header::all();
         $serviceNeuf = Service::orderBy('id', 'desc')->take(9)->get();
-        return view('service', compact('header', 'serviceNeuf'));
+        $contact = Contact::all();
+        $titres = Titre::first();
+        return view('service', compact('header', 'serviceNeuf', 'contact', 'titres'));
     }
     public function indexBDD()
     {

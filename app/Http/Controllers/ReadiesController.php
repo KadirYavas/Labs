@@ -14,7 +14,8 @@ class ReadiesController extends Controller
      */
     public function index()
     {
-        //
+        $readies = Readies::all();
+        return view('readies/bdd', compact('readies'));
     }
 
     /**
@@ -55,9 +56,10 @@ class ReadiesController extends Controller
      * @param  \App\Ready  $ready
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ready $ready)
+    public function edit($id)
     {
-        //
+        $readies = Readies::find($id);
+        return view('readies/editReadies', compact('readies'));
     }
 
     /**
@@ -67,9 +69,18 @@ class ReadiesController extends Controller
      * @param  \App\Ready  $ready
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ready $ready)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'description' => 'required|min:3|max:250',
+        ]);
+
+        $readies = Readies::find($id);
+        $readies->description = $request->input('description');
+
+        $readies->save();
+
+        return redirect()->route('bddReadies');
     }
 
     /**

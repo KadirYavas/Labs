@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <h2>Newsletter</h2>
+                <h2>{!! App\Helper\Color::blue($titres->titreNewsletter) !!}</h2>
             </div>
             <div class="col-md-9">
                 <!-- newsletter form -->
