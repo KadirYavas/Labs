@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Formulaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\FormMail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class FormulaireController extends Controller
 {
@@ -35,7 +39,31 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3|max:25',
+            'email' => 'required',
+            'subject' => 'required|max:50|min:3',
+            'message' => 'required|max:500|min:10',
+        ]);
+
+        $form = new Formulaire();
+        $form->nom = $request->input('name');
+        $form->email = $request->input('email');
+        $form->sujet = $request->input('subject');
+        $form->message = $request->input('message');
+        $form->save();
+        
+        $name = $request->input('name');
+        
+        $email =  $request->input('email');
+        
+        $subject =  $request->input('subject');
+        
+        $message = $request->input('message');
+        
+        Mail::to($email)->send(new FormMail($name, $email, $subject, $message));
+
+        return redirect()->to(app('url')->previous() . '#con_form')->with('newsletter', 'sent');;
     }
 
     /**

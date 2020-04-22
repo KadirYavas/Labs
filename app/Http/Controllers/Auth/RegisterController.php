@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -53,6 +54,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'description' => ['required', 'string', 'min:3', 'max:255'],
+            'photo' => ['required'],
         ]);
     }
 
@@ -70,12 +73,15 @@ class RegisterController extends Controller
             $id_role = 10;
         }
 
+        $image = Storage::disk('public')->put('', $request->file('photo'));
 
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'roles_id' => $id_role,
+            'description' => $data['description'],
+            'photo' => $image,
         ]);
     }
 }

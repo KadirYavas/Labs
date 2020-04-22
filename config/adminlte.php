@@ -238,6 +238,11 @@ return [
             'url'         => '/BDD-Discover',
             'icon'        => 'fas fa-file-alt',
         ],
+        [
+            'text'        => 'Contact',
+            'url'         => '/BDD-Contact',
+            'icon'        => 'fas fa-id-card',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

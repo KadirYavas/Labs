@@ -26,7 +26,8 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $contact = Contact::all();
+        return view('contact/bdd', compact('contact'));
     }
 
     /**
@@ -57,9 +58,10 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact = Contact::find($id);
+        return view('contact/editContact', compact('contact'));
     }
 
     /**
@@ -69,9 +71,26 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'description' => 'required|max:500|min:10',
+            'paysville' => 'required',
+            'adresse' => 'required',
+            'numero' => 'required',
+            'email' => 'required',
+        ]);
+
+        $contact = Contact::find($id);
+        $contact->description = $request->input('description');
+        $contact->paysville = $request->input('paysville');
+        $contact->adresse = $request->input('adresse');
+        $contact->numero = $request->input('numero');
+        $contact->email = $request->input('email');
+
+        $contact->save();
+
+        return redirect()->route('ContactBDD');
     }
 
     /**

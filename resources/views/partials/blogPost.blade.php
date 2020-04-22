@@ -26,7 +26,7 @@
                     <!-- Post Author -->
                     <div class="author">
                         <div class="avatar">
-                            <img src="img/avatar/03.jpg" alt="">
+                            <img src="img/avatar/003.jpg" alt="">
                         </div>
                         <div class="author-info">
                             <h2>Lore Williams, <span>Author</span></h2>
@@ -39,7 +39,7 @@
                         <ul class="comment-list">
                             <li>
                                 <div class="avatar">
-                                    <img src="img/avatar/01.jpg" alt="">
+                                    <img src="img/avatar/001.jpg" alt="">
                                 </div>
                                 <div class="commetn-text">
                                     <h3>Michael Smith | 03 nov, 2017 | Reply</h3>
@@ -48,7 +48,7 @@
                             </li>
                             <li>
                                 <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
+                                    <img src="img/avatar/002.jpg" alt="">
                                 </div>
                                 <div class="commetn-text">
                                     <h3>Michael Smith | 03 nov, 2017 | Reply</h3>

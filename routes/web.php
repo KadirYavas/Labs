@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
+Route::post('/messageSend', 'FormulaireController@store')->name('email');
+
 Route::get('/Service', 'ServiceController@index')->name('service');
 Route::get('/BDD-Service', 'ServiceController@indexBDD')->name('ServiceBDD');
 Route::get('/EnvoiService', 'ServiceController@create')->name('addService');
@@ -27,6 +29,9 @@ Route::get('/Blog', 'ArticleController@index')->name('blog');
 Route::get('/Blog-Post', 'ArticleController@indexDeux')->name('blog-post');
 
 Route::get('/Contact', 'ContactController@index')->name('contact');
+Route::get('/BDD-Contact', 'ContactController@create')->name('ContactBDD');
+Route::get('/EditContact/{id}', 'ContactController@edit')->name('editContact');
+Route::post('/UpdateContact/{id}', 'ContactController@update')->name('updateContact');
 
 Route::get('/BDD-Header', 'HeaderController@index')->name('bddHeader');
 Route::get('/EditLogoHeader/{id}', 'HeaderController@edit')->name('editLogoHeader');
@@ -48,7 +53,6 @@ Route::get('/EditTexteGauche/{id}', 'DiscoverController@editTexteGauche')->name(
 Route::post('/UpdateTexteGauche/{id}', 'DiscoverController@updateTexteGauche')->name('updateTexteGauche');
 Route::get('/EditTexteDroite/{id}', 'DiscoverController@editTexteDroite')->name('editTexteDroite');
 Route::post('/UpdateTexteDroite/{id}', 'DiscoverController@updateTexteDroite')->name('updateTexteDroite');
-
 
 
 

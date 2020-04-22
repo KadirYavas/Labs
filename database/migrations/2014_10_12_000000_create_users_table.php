@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
                 ->references('id')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->text('description');
+            $table->char('photo');
             $table->rememberToken();
             $table->timestamps();
         });
