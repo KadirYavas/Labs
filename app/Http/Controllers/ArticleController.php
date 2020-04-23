@@ -9,6 +9,7 @@ use App\Footer;
 use App\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -37,7 +38,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resou <a href="{{route('editArticle', $item->id)}}"><button class="btn btn-outline-info m-1">Modifier l'article</button></a>rce.
      *
      * @return \Illuminate\Http\Response
      */
@@ -62,8 +63,10 @@ class ArticleController extends Controller
             'categorie' => 'required'
         ]);
 
+        $image = Storage::disk('public')->put('', $request->file('photo'));
+
         $article = new Article();
-        $article->photo = $request->input('photo');
+        $article->photo = $image;
         $article->titre = $request->input('titre');
         $article->description = $request->input('description');
         $article->users_id = Auth::id();

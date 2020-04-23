@@ -62,7 +62,7 @@ class FormulaireController extends Controller
         
         $message = $request->input('message');
         
-        Mail::to($email)->send(new FormMail($name, $email, $subject, $message));
+        Mail::to('admin@admin.com')->send(new FormMail($name, $email, $subject, $message));
 
         return redirect()->to(app('url')->previous() . '#con_form')->with('newsletter', 'sent');
     }

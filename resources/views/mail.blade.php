@@ -1,7 +1,7 @@
-<p><span class="text-success">Sujet du message:</span> {{$sujet}}</p>
+<p><span style="color:green;">Sujet du message:</span> {{$sujet}}</p>
 
-<p>Expéditeur {{$nom}}, email: {{$mail}}</p>
+<p>L'expéditeur {{$nom}}, avec l'email: {{$mail}}, vous a laissés un message:</p>
 
 <p>{{$msg}}</p>
 
-<h4 class="text-info">Merci pour votre message !</h4>
+<h4 style="color:blue; font-weight:bold;">Merci pour votre message !</h4>

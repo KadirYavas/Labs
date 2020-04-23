@@ -6,6 +6,8 @@
 
 <div class="text-center mb-3"><h2 class="">Base de données pour la section Blog</h2></div>
 
+{{-- <a href="{{route('ajoutArticle')}}"><button class="btn btn-outline-info m-1">Ajouter un article</button></a> --}}
+
 <table class="table table-bordered table-hover shadow">
     <thead>
     <tr>
@@ -25,10 +27,18 @@
             <td>{{ $item->photo }}</td>
             <td>{{ $item->titre }}</td>
             <td>{{ $item->description }}</td>
-            <td>{{ $item->users_id }}</td>
-            <td>{{ $item->categories_id }}</td>
+            @if ($item->users_id == null)
+            <td></td>
+            @else
+            <td>{{ $item->user->name }}</td>
+            @endif
+            @if ($item->categories_id == null)
+            <td></td>
+            @else
+            <td>{{ $item->categorie->section }}</td>
+            @endif
             <td>
-                {{-- <a href="{{route('editContact', $item->id)}}"><button class="btn btn-outline-info m-1">Modifier le contact</button></a> --}}
+                <a href="{{route('editArticle', $item->id)}}"><button class="btn btn-outline-info m-1">Modifier l'article</button></a>
             </td>
         </tr>
     @endforeach

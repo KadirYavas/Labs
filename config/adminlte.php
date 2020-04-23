@@ -227,11 +227,39 @@ return [
             'text'        => 'Header',
             'url'         => '/BDD-Header',
             'icon'        => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text'        => 'Base de données',
+                    'url'         => '/BDD-Header',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'        => 'Ajoutez un carousel',
+                    'url'         => '/EnvoiCarousel',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'red',
+                ]
+            ]
         ],
         [
             'text'        => 'Service',
             'url'         => '/BDD-Service',
             'icon'        => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text'        => 'Base de données',
+                    'url'         => '/BDD-Service',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'        => 'Ajoutez un service',
+                    'url'         => '/EnvoiService',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'red',
+                ]
+            ]
         ],
         [
             'text'        => 'Discover',
@@ -259,6 +287,25 @@ return [
             'icon'        => 'fas fa-heading',
         ],
         [
+            'text'        => 'Blog',
+            'url'         => '/BDD-Blog',
+            'icon'        => 'fas fa-blog',
+            'submenu' => [
+                [
+                    'text'        => 'Base de données',
+                    'url'         => '/BDD-Blog',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'        => 'Ajoutez un carousel',
+                    'url'         => '/AddArticle',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'red',
+                ]
+            ]
+        ],
+        [
             'text'        => 'Footer',
             'url'         => '/BDD-Footer',
             'icon'        => 'fas fa-shoe-prints',
@@ -267,21 +314,31 @@ return [
             'text'        => 'Testimonial',
             'url'         => '/BDD-Testimonial',
             'icon'        => 'fas fa-users',
+            'submenu' => [
+                [
+                    'text'        => 'Base de données',
+                    'url'         => '/BDD-Testimonial',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'        => 'Ajoutez un testimonial',
+                    'url'         => '/EnvoiTestimonial',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'red',
+                ]
+            ]
         ],
         [
             'text'        => 'Users',
             'url'         => '/BDD-Users',
             'icon'        => 'fas fa-users',
+            // 'can'         => 'CEO',
         ],
         [
             'text'        => 'Newsletter',
             'url'         => '/BDD-News',
             'icon'        => 'fas fa-newspaper',
-        ],
-        [
-            'text'        => 'Blog',
-            'url'         => '/BDD-Blog',
-            'icon'        => 'fas fa-blog',
         ],
         ['header' => 'account_settings'],
         [

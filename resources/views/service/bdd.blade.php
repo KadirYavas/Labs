@@ -6,7 +6,7 @@
 
 <div class="text-center mb-3"><h2 class="">Base de données pour la section Service</h2></div>
 
-<div class="my-5"><a href="{{route('addService')}}"><button class="btn btn-outline-primary m-1">Ajoutez un service</button></a></div>
+{{-- <div class="my-5"><a href="{{route('addService')}}"><button class="btn btn-outline-primary m-1">Ajoutez un service</button></a></div> --}}
 
 
 <table class="table table-bordered table-hover shadow">

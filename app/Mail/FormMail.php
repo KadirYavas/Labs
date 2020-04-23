@@ -35,6 +35,6 @@ class FormMail extends Mailable
      */
     public function build()
     {
-        return $this->from('admin@admin.com')->subject("Accusé de réception")->view('mail', compact('nom', 'mail', 'sujet', 'msg'));
+        return $this->from($this->mail)->subject("Accusé de réception")->view('mail', compact('nom', 'mail', 'sujet', 'msg'));
     }
 }

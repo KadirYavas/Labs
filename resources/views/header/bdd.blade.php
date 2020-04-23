@@ -39,10 +39,10 @@
     </tbody>
   </table>
   
-    <div class="my-5"><a href="{{route('addCarousel')}}"><button class="btn btn-outline-primary m-1">Ajoutez une image pour le carousel</button></a></div>
+    {{-- <div class="my-5"><a href="{{route('addCarousel')}}"><button class="btn btn-outline-primary m-1">Ajoutez une image pour le carousel</button></a></div> --}}
    
 
-  <table class="table table-bordered table-hover shadow">
+  <table class="table table-bordered table-hover shadow mt-5">
     <thead>
     <tr>
         <th>ID</th>

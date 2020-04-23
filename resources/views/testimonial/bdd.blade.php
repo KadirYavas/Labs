@@ -6,7 +6,7 @@
 
 <div class="text-center mb-3"><h2 class="">Base de données pour la section Testimonial</h2></div>
 
-<a href="{{route('addTestimonial')}}"><button class="btn btn-outline-primary m-1">Ajouter un testimonial</button></a>
+{{-- <a href="{{route('addTestimonial')}}"><button class="btn btn-outline-primary m-1">Ajouter un testimonial</button></a> --}}
 
 <table class="table table-bordered table-hover shadow">
     <thead>

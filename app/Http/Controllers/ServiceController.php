@@ -7,6 +7,7 @@ use App\Header;
 use App\Contact;
 use App\Titre;
 use App\Footer;
+use App\Article;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -24,7 +25,8 @@ class ServiceController extends Controller
         $titres = Titre::first();
         $footer = Footer::all();
         $serviceSix = Service::orderBy('id', 'desc')->take(6)->get();
-        return view('service', compact('header', 'serviceNeuf', 'contact', 'titres', 'footer', 'serviceSix'));
+        $article = Article::orderBy('id', 'desc')->take(3)->get();
+        return view('service', compact('header', 'serviceNeuf', 'contact', 'titres', 'footer', 'serviceSix', 'article'));
     }
     public function indexBDD()
     {
