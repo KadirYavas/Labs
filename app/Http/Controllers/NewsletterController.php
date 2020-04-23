@@ -48,7 +48,7 @@ class NewsletterController extends Controller
         
         Mail::to($email)->send(new NewsMail($email));
 
-        return redirect()->to(app('url')->previous() . '#newsletter')->with('newsletter', 'sent');
+        return redirect()->to(app('url')->previous() . '#newsletter')->with('newslette', 'sent');
     }
 
     /**

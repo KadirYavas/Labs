@@ -98,14 +98,17 @@ class TestimonialController extends Controller
             'image' => 'required|file',
         ]);
 
-        $photo = Storage::disk('public')->put('', $request->file('image'));
-
         $testimonial = Testimonial::find($id);
+
+        if ($request->hasFile('image')) {
+        $photo = Storage::disk('public')->put('', $request->file('image'));
+        $testimonial->image = $photo;
+        }
+
         $testimonial->nom = $request->input('nom');
         $testimonial->prenom = $request->input('prenom');
         $testimonial->fonction = $request->input('fonction');
         $testimonial->texte = $request->input('texte');
-        $testimonial->image = $photo;
         $testimonial->save();
 
         return redirect()->route('bddTestimonial');

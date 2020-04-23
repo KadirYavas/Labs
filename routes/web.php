@@ -32,6 +32,7 @@ Route::get('/DestroyService/{id}', 'ServiceController@destroy')->name('destroySe
 Route::get('/Blog', 'ArticleController@index')->name('blog');
 Route::get('/Blog-Post', 'ArticleController@indexDeux')->name('blog-post');
 Route::get('/BDD-Blog', 'ArticleController@indexBDD')->name('BlogBDD');
+Route::get('/BDD-Valide', 'ArticleController@indexBDDValide')->name('BlogBDDValide');
 Route::get('/AddArticle', 'ArticleController@create')->name('ajoutArticle');
 Route::post('/StoreArticle', 'ArticleController@store')->name('envoiArticle');
 Route::get('/EditArticle/{id}', 'ArticleController@edit')->name('editArticle');

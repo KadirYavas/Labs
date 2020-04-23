@@ -7,7 +7,7 @@
             </div>
             <div class="col-md-9">
                 <!-- newsletter form -->
-                @if(Session::has('newsletter'))
+                @if(Session::has('newslette'))
 
                 <div class="alert alert-success" id="newsletterSuccess">
                     <strong>Merci</strong> de vous être inscris.

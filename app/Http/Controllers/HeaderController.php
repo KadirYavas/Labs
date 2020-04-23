@@ -103,10 +103,13 @@ class HeaderController extends Controller
             'logo' => 'required|file',
         ]);
 
-        $image = Storage::disk('public')->put('', $request->file('logo'));
-
         $header = Header::find($id);
+
+        if ($request->hasFile('logo')) {
+        $image = Storage::disk('public')->put('', $request->file('logo'));
         $header->logo = $image;
+        }
+
 
         $header->save();
 
@@ -137,10 +140,12 @@ class HeaderController extends Controller
             'image' => 'required|file',
         ]);
 
-        $image = Storage::disk('public')->put('', $request->file('image'));
-
         $headerCarousel = Carousel::find($id);
+
+        if ($request->hasFile('image')) {
+        $image = Storage::disk('public')->put('', $request->file('image'));
         $headerCarousel->image = $image;
+        }
 
         $headerCarousel->save();
 

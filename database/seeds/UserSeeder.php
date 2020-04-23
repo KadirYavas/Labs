@@ -19,6 +19,13 @@ class UserSeeder extends Seeder
             'photo' => '3.jpg',
         ]);
         DB::table('users')->insert([
+            'name' => 'Rédacteur',
+            'email' => 'reda@reda.com',
+            'password' => Hash::make('123456789'),
+            'roles_id' => 3,
+            'photo' => '3.jpg',
+        ]);
+        DB::table('users')->insert([
             'name' => 'Mkdir',
             'email' => 'mkdir@mkdir.com',
             'password' => Hash::make('123456789'),

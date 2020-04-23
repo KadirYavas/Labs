@@ -298,7 +298,13 @@ return [
                     'icon_color' => 'blue',
                 ],
                 [
-                    'text'        => 'Ajoutez un carousel',
+                    'text'        => 'Validez un article',
+                    'url'         => '/BDD-Valide',
+                    'icon'        => 'far fa-fw fa-file',
+                    'icon_color' => 'green',
+                ],
+                [
+                    'text'        => 'Ajoutez un article',
                     'url'         => '/AddArticle',
                     'icon'        => 'far fa-fw fa-file',
                     'icon_color' => 'red',

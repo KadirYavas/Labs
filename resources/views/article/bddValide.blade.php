@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="text-center mb-3"><h2 class="">Base de données pour la section Blog</h2></div>
+<div class="text-center mb-3"><h2 class="">Base de données pour valider les articles</h2></div>
 
 {{-- <a href="{{route('ajoutArticle')}}"><button class="btn btn-outline-info m-1">Ajouter un article</button></a> --}}
 
@@ -22,6 +22,7 @@
     </thead>
     <tbody>
     @foreach($article as $item)
+    @if ($item->valide == false)
         <tr>
             <td>{{ $item->id }}</td>
             <td><img src="{{ 'storage/'.$item->photo }}" width="60%" alt=""></td>
@@ -41,6 +42,7 @@
                 <a href="{{route('editArticle', $item->id)}}"><button class="btn btn-outline-info m-1">Modifier l'article</button></a>
             </td>
         </tr>
+    @endif
     @endforeach
     </tbody>
   </table>

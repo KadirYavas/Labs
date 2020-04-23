@@ -15,9 +15,9 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->char('photo');
+            $table->char('photo')->nullable();
             $table->char('titre');
-            $table->char('description');
+            $table->text('description');
             $table->bigInteger('users_id')->unsigned()->nullable();
             $table->foreign('users_id')
                 ->on('users')
@@ -30,6 +30,7 @@ class CreateArticlesTable extends Migration
                 ->references('id')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->boolean('valide');
             $table->timestamps();
         });
     }

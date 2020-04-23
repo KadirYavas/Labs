@@ -12,6 +12,9 @@ class CategorieSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
+            'section' => 'Loredana Papp',
+        ]);
+        DB::table('categories')->insert([
             'section' => 'Vestibulum maximus',
         ]);
         DB::table('categories')->insert([
@@ -28,6 +31,18 @@ class CategorieSeeder extends Seeder
         ]);
         DB::table('categories')->insert([
             'section' => 'Etiam egestas viverra',
+        ]);
+        DB::table('categories')->insert([
+            'section' => 'Lorem Ipsum',
+        ]);
+        DB::table('categories')->insert([
+            'section' => 'Bla bla toc',
+        ]);
+        DB::table('categories')->insert([
+            'section' => 'MolenGeek',
+        ]);
+        DB::table('categories')->insert([
+            'section' => 'Animeeee',
         ]);
     }
 }

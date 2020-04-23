@@ -7,6 +7,8 @@ use App\Header;
 use App\Titre;
 use App\Footer;
 use App\Categorie;
+use App\Quote;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -23,18 +25,29 @@ class ArticleController extends Controller
         $header = Header::all();
         $titres = Titre::first();
         $footer = Footer::all();
-        return view('blog', compact('header', 'titres' ,'footer'));
+        $quote = Quote::inRandomOrder()->take(1)->get();
+        $tag = Tag::inRandomOrder()->take(9)->get();
+        $categorie = Categorie::inRandomOrder()->take(6)->get();
+        $article = Article::orderBy('id', 'desc')->paginate(3);
+        return view('blog', compact('header', 'titres' ,'footer', 'quote', 'tag', 'categorie', 'article'));
     }
     public function indexDeux()
     {
         $header = Header::all();
         $titres = Titre::first();
         $footer = Footer::all();
-        return view('blogPost', compact('header' ,'titres' ,'footer'));
+        $quote = Quote::inRandomOrder()->take(1)->get();
+        $tag = Tag::inRandomOrder()->take(9)->get();
+        $categorie = Categorie::inRandomOrder()->take(6)->get();
+        return view('blogPost', compact('header' ,'titres' ,'footer', 'quote', 'tag', 'categorie'));
     }
     public function indexBDD(){
         $article = Article::all();
         return view('article/bdd', compact('article'));
+    }
+    public function indexBDDValide(){
+        $article = Article::all();
+        return view('article/bddValide', compact('article'));
     }
 
     /**
@@ -71,6 +84,7 @@ class ArticleController extends Controller
         $article->description = $request->input('description');
         $article->users_id = Auth::id();
         $article->categories_id = $request->input('categorie');
+        $article->valide = false;
         $article->save();
 
         return redirect()->route('BlogBDD');
@@ -110,18 +124,24 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'photo' => 'required|file',
             'titre' => 'required|max:30|min:4',
             'description' => 'required|max:500|min:10',
             'categorie' => 'required'
         ]);
 
         $article = Article::find($id);
-        $article->photo = $request->input('photo');
+        if ($request->hasFile('photo')) {
+            
+            $image = Storage::disk('public')->put('', $request->file('photo'));
+            $article->photo = $image;
+        }
+
+
         $article->titre = $request->input('titre');
         $article->description = $request->input('description');
         $article->users_id = Auth::id();
         $article->categories_id = $request->input('categorie');
+        $article->valide = $request->input('valide');
         $article->save();
 
         return redirect()->route('BlogBDD');
