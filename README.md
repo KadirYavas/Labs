@@ -1,4 +1,4 @@
-<p align="center"><img src="{{asset('img/big-logo.png')}}" width="400"></p>
+<p align="center"><img src="https://colorlib.com/wp/wp-content/uploads/sites/2/labs-digital-agency-website-template.jpg" width="400"></p>
 
 ## Projet Labs
 
