@@ -28,8 +28,8 @@
     <div class="d-flex justify-content-around mb-3">
         <select class="form-control w-25" name="position" id="">
             <option value="">Choisir la position</option>
-            <option value="false">Gauche</option>
-            <option value="true">Droite</option>
+            <option value="0">Gauche</option>
+            <option value="1">Droite</option>
         </select>
         {{-- <input class="w-75 form-control @error('position') is-invalid @enderror" type="text" name="position" id="" rows="5" cols="40" value="{{$footer->position}}">
         @error('position')

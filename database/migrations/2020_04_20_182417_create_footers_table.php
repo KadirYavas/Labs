@@ -17,7 +17,7 @@ class CreateFootersTable extends Migration
             $table->id();
             $table->char('texte');
             $table->char('lien');
-            $table->char('position');
+            $table->boolean('position');
             $table->timestamps();
         });
     }

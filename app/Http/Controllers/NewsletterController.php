@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewsMail;
 
 class NewsletterController extends Controller
 {
@@ -14,7 +16,8 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        //
+        $news = Newsletter::all();
+        return view('news/bdd', compact('news'));
     }
 
     /**
@@ -35,7 +38,17 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $news = new Newsletter();
+
+        $news->email = $request->input('news');
+
+        $news->save();
+
+        $email = $request->input('news');
+        
+        Mail::to($email)->send(new NewsMail($email));
+
+        return redirect()->to(app('url')->previous() . '#newsletter')->with('newsletter', 'sent');
     }
 
     /**

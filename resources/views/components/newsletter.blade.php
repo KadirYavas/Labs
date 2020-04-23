@@ -1,5 +1,5 @@
 <!-- newsletter section -->
-<div class="newsletter-section spad">
+<div class="newsletter-section spad" id="newsletter">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -7,9 +7,17 @@
             </div>
             <div class="col-md-9">
                 <!-- newsletter form -->
-                <form class="nl-form">
-                    <input type="text" placeholder="Your e-mail here">
-                    <button class="site-btn btn-2">Newsletter</button>
+                @if(Session::has('newsletter'))
+
+                <div class="alert alert-success" id="newsletterSuccess">
+                    <strong>Merci</strong> de vous être inscris.
+                </div>
+
+                @endif
+                <form class="nl-form" action="{{route('news')}}" method="POST">
+                    @csrf
+                    <input type="text" name="news" placeholder="Your e-mail here">
+                    <button type="submit" class="site-btn btn-2">Newsletter</button>
                 </form>
             </div>
         </div>

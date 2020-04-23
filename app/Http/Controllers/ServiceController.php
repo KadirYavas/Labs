@@ -6,6 +6,7 @@ use App\Service;
 use App\Header;
 use App\Contact;
 use App\Titre;
+use App\Footer;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -18,10 +19,12 @@ class ServiceController extends Controller
     public function index()
     {
         $header = Header::all();
-        $serviceNeuf = Service::orderBy('id', 'desc')->take(9)->get();
+        $serviceNeuf = Service::orderBy('id', 'desc')->paginate(9);
         $contact = Contact::all();
         $titres = Titre::first();
-        return view('service', compact('header', 'serviceNeuf', 'contact', 'titres'));
+        $footer = Footer::all();
+        $serviceSix = Service::orderBy('id', 'desc')->take(6)->get();
+        return view('service', compact('header', 'serviceNeuf', 'contact', 'titres', 'footer', 'serviceSix'));
     }
     public function indexBDD()
     {

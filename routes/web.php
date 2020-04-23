@@ -18,6 +18,9 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/BDD-Form', 'FormulaireController@index')->name('bddForm');
 Route::post('/messageSend', 'FormulaireController@store')->name('email');
 
+Route::get('/BDD-News', 'NewsletterController@index')->name('bddNews');
+Route::post('/newsSend', 'NewsletterController@store')->name('news');
+
 Route::get('/Service', 'ServiceController@index')->name('service');
 Route::get('/BDD-Service', 'ServiceController@indexBDD')->name('ServiceBDD');
 Route::get('/EnvoiService', 'ServiceController@create')->name('addService');
@@ -28,6 +31,11 @@ Route::get('/DestroyService/{id}', 'ServiceController@destroy')->name('destroySe
 
 Route::get('/Blog', 'ArticleController@index')->name('blog');
 Route::get('/Blog-Post', 'ArticleController@indexDeux')->name('blog-post');
+Route::get('/BDD-Blog', 'ArticleController@indexBDD')->name('BlogBDD');
+Route::post('/StoreArticle', 'ArticleController@store')->name('envoiArticle');
+Route::get('/EditArticle/{id}', 'ArticleController@edit')->name('editArticle');
+Route::post('/UpdateArticle/{id}', 'ArticleController@update')->name('updateArticle');
+Route::get('/DestroyArticle/{id}', 'ArticleController@destroy')->name('destroyArticle');
 
 Route::get('/Contact', 'ContactController@index')->name('contact');
 Route::get('/BDD-Contact', 'ContactController@create')->name('ContactBDD');

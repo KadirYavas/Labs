@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Header;
 use App\Titre;
+use App\Footer;
+use App\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -18,13 +21,19 @@ class ArticleController extends Controller
     {
         $header = Header::all();
         $titres = Titre::first();
-        return view('blog', compact('header', 'titres'));
+        $footer = Footer::all();
+        return view('blog', compact('header', 'titres' ,'footer'));
     }
     public function indexDeux()
     {
         $header = Header::all();
         $titres = Titre::first();
-        return view('blogPost', compact('header' ,'titres'));
+        $footer = Footer::all();
+        return view('blogPost', compact('header' ,'titres' ,'footer'));
+    }
+    public function indexBDD(){
+        $article = Article::all();
+        return view('article/bdd', compact('article'));
     }
 
     /**
@@ -34,7 +43,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $categorie = Categorie::all();
+        return view('article/ajoutArticle', compact('categorie'));
     }
 
     /**
@@ -45,7 +55,22 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'photo' => 'required|file',
+            'titre' => 'required|max:30|min:4',
+            'description' => 'required|max:500|min:10',
+            'categorie' => 'required'
+        ]);
+
+        $article = new Article();
+        $article->photo = $request->input('photo');
+        $article->titre = $request->input('titre');
+        $article->description = $request->input('description');
+        $article->users_id = Auth::id();
+        $article->categories_id = $request->input('categorie');
+        $article->save();
+
+        return redirect()->route('BlogBDD');
     }
 
     /**
@@ -65,9 +90,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        $categorie = Categorie::all();
+        return view('article/editArticle', compact('article', 'categorie'));
     }
 
     /**
@@ -77,9 +104,24 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'photo' => 'required|file',
+            'titre' => 'required|max:30|min:4',
+            'description' => 'required|max:500|min:10',
+            'categorie' => 'required'
+        ]);
+
+        $article = Article::find($id);
+        $article->photo = $request->input('photo');
+        $article->titre = $request->input('titre');
+        $article->description = $request->input('description');
+        $article->users_id = Auth::id();
+        $article->categories_id = $request->input('categorie');
+        $article->save();
+
+        return redirect()->route('BlogBDD');
     }
 
     /**
@@ -88,8 +130,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        return redirect()->route('BlogBDD');
     }
 }

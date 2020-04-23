@@ -20,8 +20,20 @@
                 </div>
             @endforeach
         </div>
+        @if ( Request::is('Service'))
+            <div class="text-center">{{$serviceNeuf->links()}}</div>
+        @else
+            
+        @endif
+        
         <div class="text-center">
+            @if( Request::is('Service'))
+
+            <a href="#spad" class="site-btn">Browse</a>
+            @else 
             <a href="{{route('service')}}" class="site-btn">Browse</a>
+
+            @endif
         </div>
     </div>
 </div>
