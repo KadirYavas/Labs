@@ -83,7 +83,7 @@ class ArticleController extends Controller
         $article->titre = $request->input('titre');
         $article->description = $request->input('description');
         $article->users_id = Auth::id();
-        $article->categories_id = $request->input('categorie');
+        $article->categorie_id = $request->input('categorie');
         $article->valide = false;
         $article->save();
 
@@ -140,7 +140,7 @@ class ArticleController extends Controller
         $article->titre = $request->input('titre');
         $article->description = $request->input('description');
         $article->users_id = Auth::id();
-        $article->categories_id = $request->input('categorie');
+        $article->categorie_id = $request->input('categorie');
         $article->valide = $request->input('valide');
         $article->save();
 

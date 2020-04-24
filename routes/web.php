@@ -21,6 +21,13 @@ Route::post('/messageSend', 'FormulaireController@store')->name('email');
 Route::get('/BDD-News', 'NewsletterController@index')->name('bddNews');
 Route::post('/newsSend', 'NewsletterController@store')->name('news');
 
+Route::get('/BDD-Categorie', 'CategorieController@index')->name('CategorieBDD');
+Route::get('/CreateCategorie', 'CategorieController@create')->name('addCategorie');
+Route::post('/StoreCategorie', 'CategorieController@store')->name('envoiCategorie');
+Route::get('/EditCategorie/{id}', 'CategorieController@edit')->name('editCategorie');
+Route::post('/UpdateCategorie/{id}', 'CategorieController@update')->name('updateCategorie');
+Route::get('/DestroyCategorie/{id}', 'CategorieController@destroy')->name('destroyCategorie');
+
 Route::get('/Service', 'ServiceController@index')->name('service');
 Route::get('/BDD-Service', 'ServiceController@indexBDD')->name('ServiceBDD');
 Route::get('/EnvoiService', 'ServiceController@create')->name('addService');

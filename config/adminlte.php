@@ -312,6 +312,25 @@ return [
             ]
         ],
         [
+            'text'        => 'Categorie',
+            'url'         => '/BDD-Categorie',
+            'icon'        => 'fas fa-puzzle-piece',
+            'submenu' => [
+                [
+                    'text'        => 'Base de données',
+                    'url'         => '/BDD-Categorie',
+                    'icon'        => 'fas fa-puzzle-piece',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'        => 'Ajoutez une catégorie',
+                    'url'         => '/CreateCategorie',
+                    'icon'        => 'fas fa-puzzle-piece',
+                    'icon_color' => 'red',
+                ]
+            ]
+        ],
+        [
             'text'        => 'Footer',
             'url'         => '/BDD-Footer',
             'icon'        => 'fas fa-shoe-prints',

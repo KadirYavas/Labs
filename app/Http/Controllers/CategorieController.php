@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\Article;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -14,7 +15,9 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $categorie = Categorie::all();
+        $articles = Article::all();
+        return view('categorie/bdd', compact('categorie', 'articles'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorie/ajoutCategorie');
     }
 
     /**
@@ -35,7 +38,15 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'categorie' => 'required|max:30|min:3',
+        ]);
+
+        $categorie = new Categorie();
+        $categorie->section = $request->input('categorie');
+        $categorie->save();
+
+        return redirect()->route('CategorieBDD');
     }
 
     /**
@@ -55,9 +66,10 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categorie $categorie)
+    public function edit($id)
     {
-        //
+        $categorie = Categorie::find($id);
+        return view('categorie/editCategorie', compact('categorie'));
     }
 
     /**
@@ -67,9 +79,18 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categorie $categorie)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'categorie' => 'required|max:30|min:3',
+        ]);
+
+        $categorie = Categorie::find($id);
+
+        $categorie->section = $request->input('categorie');
+        $categorie->save();
+
+        return redirect()->route('CategorieBDD');
     }
 
     /**
@@ -78,8 +99,10 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categorie $categorie)
+    public function destroy($id)
     {
-        //
+        $categorie = Categorie::find($id);
+        $categorie->delete();
+        return redirect()->route('CategorieBDD');
     }
 }

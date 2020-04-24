@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     public function categorie() {
-        return $this->belongsTo('App\Categorie', 'categories_id');
+        return $this->belongsTo('App\Categorie', 'categorie_id');
     }
     public function user() {
         return $this->belongsTo('App\User', 'users_id');
+    }
+    public function tag() {
+        return $this->hasMany('App\Tag');
     }
 }

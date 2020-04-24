@@ -18,6 +18,9 @@ class User extends Authenticatable
     public function role() {
         return $this->belongsTo('App\Role', 'roles_id');
     }
+    public function article() {
+        return $this->hasMany('App\Article');
+    }
 
     protected $fillable = [
         'name', 'email', 'password', 'roles_id', 'photo'
