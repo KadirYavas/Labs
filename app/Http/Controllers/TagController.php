@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tag = Tag::all();
+        return view('tag/bdd', compact('tag'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tag/ajoutTag');
     }
 
     /**
@@ -35,7 +36,15 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tag' => 'required|max:20|min:3',
+        ]);
+
+        $tag = new Tag();
+        $tag->tag = $request->input('tag');
+        $tag->save();
+
+        return redirect()->route('TagBDD');
     }
 
     /**
@@ -55,9 +64,10 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit($id)
     {
-        //
+        $tags = Tag::find($id);
+        return view('tag/editTag', compact('tags'));
     }
 
     /**
@@ -67,9 +77,18 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tag' => 'required|max:20|min:3',
+        ]);
+
+        $tag = Tag::find($id);
+
+        $tag->tag = $request->input('tag');
+        $tag->save();
+
+        return redirect()->route('TagBDD');
     }
 
     /**
@@ -78,8 +97,10 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->delete();
+        return redirect()->route('TagBDD');
     }
 }

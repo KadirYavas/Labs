@@ -21,6 +21,9 @@ class User extends Authenticatable
     public function article() {
         return $this->hasMany('App\Article');
     }
+    public function commentaires() {
+        return $this->hasMany('App\Commentaire', 'user_id');
+    }
 
     protected $fillable = [
         'name', 'email', 'password', 'roles_id', 'photo'

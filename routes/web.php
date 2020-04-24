@@ -28,6 +28,13 @@ Route::get('/EditCategorie/{id}', 'CategorieController@edit')->name('editCategor
 Route::post('/UpdateCategorie/{id}', 'CategorieController@update')->name('updateCategorie');
 Route::get('/DestroyCategorie/{id}', 'CategorieController@destroy')->name('destroyCategorie');
 
+Route::get('/BDD-Tag', 'TagController@index')->name('TagBDD');
+Route::get('/CreateTag', 'TagController@create')->name('addTag');
+Route::post('/StoreTag', 'TagController@store')->name('envoiTag');
+Route::get('/EditTag/{id}', 'TagController@edit')->name('editTag');
+Route::post('/UpdateTag/{id}', 'TagController@update')->name('updateTag');
+Route::get('/DestroyTag/{id}', 'TagController@destroy')->name('destroyTag');
+
 Route::get('/Service', 'ServiceController@index')->name('service');
 Route::get('/BDD-Service', 'ServiceController@indexBDD')->name('ServiceBDD');
 Route::get('/EnvoiService', 'ServiceController@create')->name('addService');
@@ -45,6 +52,7 @@ Route::post('/StoreArticle', 'ArticleController@store')->name('envoiArticle');
 Route::get('/EditArticle/{id}', 'ArticleController@edit')->name('editArticle');
 Route::post('/UpdateArticle/{id}', 'ArticleController@update')->name('updateArticle');
 Route::get('/DestroyArticle/{id}', 'ArticleController@destroy')->name('destroyArticle');
+Route::get('/ShowArticle/{id}', 'ArticleController@show')->name('showArticle');
 
 Route::get('/Contact', 'ContactController@index')->name('contact');
 Route::get('/BDD-Contact', 'ContactController@create')->name('ContactBDD');
@@ -92,7 +100,8 @@ Route::get('BDD-Users', 'UserController@index')->name('bddUser');
 Route::get('/EditUser/{id}', 'UserController@edit')->name('editUser');
 Route::post('/UpdateUser/{id}', 'UserController@update')->name('updateUser');
 
-
+Route::get('BDD-Commentaire', 'CommentaireController@index')->name('CommentaireBDD');
+Route::post('/StoreCommentaire', 'CommentaireController@store')->name('sendCommentaire');
 
 Auth::routes();
 

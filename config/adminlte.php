@@ -331,6 +331,25 @@ return [
             ]
         ],
         [
+            'text'        => 'Tag',
+            'url'         => '/BDD-Tag',
+            'icon'        => 'fas fa-puzzle-piece',
+            'submenu' => [
+                [
+                    'text'        => 'Base de données',
+                    'url'         => '/BDD-Tag',
+                    'icon'        => 'fas fa-puzzle-piece',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'        => 'Ajoutez un tag',
+                    'url'         => '/CreateTag',
+                    'icon'        => 'fas fa-puzzle-piece',
+                    'icon_color' => 'red',
+                ]
+            ]
+        ],
+        [
             'text'        => 'Footer',
             'url'         => '/BDD-Footer',
             'icon'        => 'fas fa-shoe-prints',
@@ -363,6 +382,11 @@ return [
         [
             'text'        => 'Newsletter',
             'url'         => '/BDD-News',
+            'icon'        => 'fas fa-newspaper',
+        ],
+        [
+            'text'        => 'Commentaires',
+            'url'         => '/BDD-Commentaire',
             'icon'        => 'fas fa-newspaper',
         ],
         ['header' => 'account_settings'],

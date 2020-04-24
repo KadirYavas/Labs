@@ -33,6 +33,22 @@ class CreateArticlesTable extends Migration
             $table->boolean('valide');
             $table->timestamps();
         });
+        Schema::create('article_tag', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('article_id')->unsigned()->nullable();
+            $table->foreign('article_id')
+                ->on('articles')
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->bigInteger('tag_id')->unsigned()->nullable();
+            $table->foreign('tag_id')
+                ->on('tags')
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->timestamps();
+        });
     }
 
     /**

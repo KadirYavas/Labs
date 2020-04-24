@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentaireController extends Controller
 {
@@ -14,7 +15,8 @@ class CommentaireController extends Controller
      */
     public function index()
     {
-        //
+        $commentaire = Commentaire::all();
+        return view('commentaire/bdd', compact('commentaire'));
     }
 
     /**
@@ -35,7 +37,23 @@ class CommentaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        if (Auth::check()) {
+            
+            $request->validate([
+                'message' => 'required|max:300|min:3',
+            ]);
+    
+            $commentaire = new Commentaire();
+            $commentaire->message = $request->input('message');
+            $commentaire->save();
+
+            return redirect()->to(app('url')->previous() . '#coms')->with('newslett', 'sent');
+        } else {
+            return redirect()->to(app('url')->previous() . '#coms')->with('newsle', 'sent');
+        }
+        
+        
     }
 
     /**

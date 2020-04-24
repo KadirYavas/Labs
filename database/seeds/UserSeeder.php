@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 1,
             'photo' => '3.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Rédacteur',
@@ -24,6 +25,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 3,
             'photo' => '3.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Mkdir',
@@ -31,6 +33,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 4,
             'photo' => '2.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Iron Man',
@@ -38,6 +41,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 10,
             'photo' => '1.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Webmaster',
@@ -45,6 +49,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 2,
             'photo' => '1.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Sales Supervisor',
@@ -52,6 +57,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 9,
             'photo' => '2.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Community Manager',
@@ -59,6 +65,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 8,
             'photo' => '3.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Project Manager',
@@ -66,6 +73,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 5,
             'photo' => '2.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Spider Man',
@@ -73,6 +81,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 10,
             'photo' => '1.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
             'name' => 'Super Man',
@@ -80,6 +89,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'roles_id' => 10,
             'photo' => '2.jpg',
+            'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
     }
 }

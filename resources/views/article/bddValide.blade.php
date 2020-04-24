@@ -17,7 +17,7 @@
         <th>Description</th>
         <th>Créateur de l'article</th>
         <th>Catégorie de l'article</th>
-        <th>Actions: Edit</th>
+        <th>Actions: Validation</th>
     </tr>
     </thead>
     <tbody>
@@ -31,7 +31,7 @@
             <td>{{ $item->user->name }}</td>
             <td>{{ $item->categorie->section }}</td>
             <td>
-                <a href="{{route('editArticle', $item->id)}}"><button class="btn btn-outline-info m-1">Modifier l'article</button></a>
+                <a href="{{route('editArticle', $item->id)}}"><button class="btn btn-outline-info m-1">Validez l'article</button></a>
             </td>
         </tr>
     @endif

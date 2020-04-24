@@ -17,11 +17,13 @@
                             <h2 class="post-title">{{$item->titre}}</h2>
                             <div class="post-meta">
                                 <a href="">{{$item->categorie->section}}</a>
-                                <a href="">Design, Inspiration</a>
-                                <a href="">2 Comments</a>
+                                <a href="">@foreach ($item->tags->shuffle()->take(3) as $tage)
+                                    {{$tage->tag}},
+                                @endforeach</a>
+                                <a href="">{{$commentaire->count()}} Comments</a>
                             </div>
-                            <p>{{$item->description}}</p>
-                            <a href="{{route('blog-post', $item->id)}}" class="read-more">Read More</a>
+                            <p>{{ Illuminate\Support\Str::limit($item->description, 250) }}</p>
+                            <a href="{{route('showArticle', $item->id)}}" class="read-more">Read More</a>
                         </div>
                     </div>
                 @endforeach

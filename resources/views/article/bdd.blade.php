@@ -17,6 +17,7 @@
         <th>Description</th>
         <th>Créateur de l'article</th>
         <th>Catégorie de l'article</th>
+        <th>Tag de l'article</th>
         <th>Actions: Edit</th>
     </tr>
     </thead>
@@ -29,8 +30,13 @@
             <td>{{ $item->description }}</td>
             <td>{{ $item->user->name }}</td>
             <td>{{ $item->categorie->section }}</td>
+            <td>@foreach ($item->tags as $tag)
+                {{ $tag->tag }}
+            @endforeach</td>
+           
             <td>
                 <a href="{{route('editArticle', $item->id)}}"><button class="btn btn-outline-info m-1">Modifier l'article</button></a>
+                {{-- <a href="{{route('showArticle', $item->id)}}"><button class="btn btn-outline-info m-1">Show l'article</button></a> --}}
             </td>
         </tr>
     @endforeach

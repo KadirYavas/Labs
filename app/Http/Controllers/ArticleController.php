@@ -9,6 +9,8 @@ use App\Footer;
 use App\Categorie;
 use App\Quote;
 use App\Tag;
+use App\Commentaire;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +31,8 @@ class ArticleController extends Controller
         $tag = Tag::inRandomOrder()->take(9)->get();
         $categorie = Categorie::inRandomOrder()->take(6)->get();
         $article = Article::orderBy('id', 'desc')->paginate(3);
-        return view('blog', compact('header', 'titres' ,'footer', 'quote', 'tag', 'categorie', 'article'));
+        $commentaire = Commentaire::all();
+        return view('blog', compact('header', 'titres' ,'footer', 'quote', 'tag', 'categorie', 'article', 'commentaire'));
     }
     public function indexDeux()
     {
@@ -58,7 +61,8 @@ class ArticleController extends Controller
     public function create()
     {
         $categorie = Categorie::all();
-        return view('article/ajoutArticle', compact('categorie'));
+        $tag = Tag::all();
+        return view('article/ajoutArticle', compact('categorie', 'tag'));
     }
 
     /**
@@ -73,7 +77,8 @@ class ArticleController extends Controller
             'photo' => 'required|file',
             'titre' => 'required|max:30|min:4',
             'description' => 'required|max:500|min:10',
-            'categorie' => 'required'
+            'categorie' => 'required',
+            'tag' => 'required',
         ]);
 
         $image = Storage::disk('public')->put('', $request->file('photo'));
@@ -86,6 +91,10 @@ class ArticleController extends Controller
         $article->categorie_id = $request->input('categorie');
         $article->valide = false;
         $article->save();
+        foreach ($request->tag as $key) {
+            $article->tags()->attach($key);
+        }
+
 
         return redirect()->route('BlogBDD');
     }
@@ -96,9 +105,18 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        // $this->authorize('view', Pokemon::class);
+        $article = Article::all()->where('id', $id);
+        $categorie = Categorie::inRandomOrder()->take(6)->get();
+        $tag = Tag::inRandomOrder()->take(9)->get();
+        $quote = Quote::inRandomOrder()->take(1)->get();
+        $header = Header::all();
+        $titres = Titre::first();
+        $footer = Footer::all();
+        $commentaire = Commentaire::where('article_id', $id)->inRandomOrder()->take(2)->get();
+        return view('blogPost', compact('article', 'categorie', 'tag', 'quote', 'titres', 'header', 'footer', 'commentaire'));
     }
 
     /**
@@ -111,7 +129,8 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $categorie = Categorie::all();
-        return view('article/editArticle', compact('article', 'categorie'));
+        $tag = Tag::all();
+        return view('article/editArticle', compact('article', 'categorie', 'tag'));
     }
 
     /**

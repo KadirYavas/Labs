@@ -12,7 +12,10 @@ class Article extends Model
     public function user() {
         return $this->belongsTo('App\User', 'users_id');
     }
-    public function tag() {
-        return $this->hasMany('App\Tag');
+    public function tags() {
+        return $this->belongsToMany('App\Tag');
+    }
+    public function commentaires() {
+        return $this->hasMany('App\Commentaire', 'article_id');
     }
 }
