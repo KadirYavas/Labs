@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Categorie;
 use App\Article;
+use App\Tag;
+use App\Quote;
+use App\Header;
+use App\Footer;
+use App\Titre;
+use App\Commentaire;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -55,9 +61,17 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function show(Categorie $categorie)
+    public function show($id)
     {
-        //
+        $article = Article::where('categorie_id', $id)->paginate(3);
+        $categorie = Categorie::inRandomOrder()->take(6)->get();
+        $tag = Tag::inRandomOrder()->take(9)->get();
+        $quote = Quote::inRandomOrder()->take(1)->get();
+        $header = Header::all();
+        $titres = Titre::first();
+        $footer = Footer::all();
+        $commentaire = Commentaire::where('article_id', $id)->inRandomOrder()->take(2)->get();
+        return view('blog', compact('article', 'categorie', 'tag', 'quote', 'titres', 'header', 'footer', 'commentaire'));
     }
 
     /**

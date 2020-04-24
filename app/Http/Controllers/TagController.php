@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Article;
+use App\Footer;
+use App\Header;
+use App\Titre;
+use App\Quote;
+use App\Commentaire;
+use App\Categorie;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -53,9 +60,18 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show($id)
     {
-        //
+        $search = Tag::find($id);
+        $article = $search->articles()->paginate(3);
+        $categorie = Categorie::inRandomOrder()->take(6)->get();
+        $tag = Tag::inRandomOrder()->take(9)->get();
+        $quote = Quote::inRandomOrder()->take(1)->get();
+        $header = Header::all();
+        $titres = Titre::first();
+        $footer = Footer::all();
+        $commentaire = Commentaire::where('article_id', $id)->inRandomOrder()->take(2)->get();
+        return view('blog', compact('article', 'categorie', 'tag', 'quote', 'titres', 'header', 'footer', 'commentaire'));
     }
 
     /**

@@ -27,6 +27,7 @@ Route::post('/StoreCategorie', 'CategorieController@store')->name('envoiCategori
 Route::get('/EditCategorie/{id}', 'CategorieController@edit')->name('editCategorie');
 Route::post('/UpdateCategorie/{id}', 'CategorieController@update')->name('updateCategorie');
 Route::get('/DestroyCategorie/{id}', 'CategorieController@destroy')->name('destroyCategorie');
+Route::get('/ShowCategorie/{id}', 'CategorieController@show')->name('showCategorie');
 
 Route::get('/BDD-Tag', 'TagController@index')->name('TagBDD');
 Route::get('/CreateTag', 'TagController@create')->name('addTag');
@@ -34,6 +35,7 @@ Route::post('/StoreTag', 'TagController@store')->name('envoiTag');
 Route::get('/EditTag/{id}', 'TagController@edit')->name('editTag');
 Route::post('/UpdateTag/{id}', 'TagController@update')->name('updateTag');
 Route::get('/DestroyTag/{id}', 'TagController@destroy')->name('destroyTag');
+Route::get('/ShowTag/{id}', 'TagController@show')->name('showTag');
 
 Route::get('/Service', 'ServiceController@index')->name('service');
 Route::get('/BDD-Service', 'ServiceController@indexBDD')->name('ServiceBDD');
@@ -53,6 +55,7 @@ Route::get('/EditArticle/{id}', 'ArticleController@edit')->name('editArticle');
 Route::post('/UpdateArticle/{id}', 'ArticleController@update')->name('updateArticle');
 Route::get('/DestroyArticle/{id}', 'ArticleController@destroy')->name('destroyArticle');
 Route::get('/ShowArticle/{id}', 'ArticleController@show')->name('showArticle');
+Route::get('/SearchWord', 'ArticleController@search')->name('search');
 
 Route::get('/Contact', 'ContactController@index')->name('contact');
 Route::get('/BDD-Contact', 'ContactController@create')->name('ContactBDD');

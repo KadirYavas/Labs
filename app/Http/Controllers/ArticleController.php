@@ -178,4 +178,19 @@ class ArticleController extends Controller
         $article->delete();
         return redirect()->route('BlogBDD');
     }
+    public function search(Request $request) {
+
+        $word = $request->input('word');
+
+        $article = Article::where('titre', 'LIKE', '%'.$word.'%')->paginate(3);
+        $categorie = Categorie::inRandomOrder()->take(6)->get();
+        $tag = Tag::inRandomOrder()->take(9)->get();
+        $quote = Quote::inRandomOrder()->take(1)->get();
+        $header = Header::all();
+        $titres = Titre::first();
+        $footer = Footer::all();
+        $commentaire = Commentaire::all();
+
+        return view('blog', compact('article', 'categorie', 'tag', 'quote', 'titres', 'header', 'footer', 'commentaire'));
+    }
 }
