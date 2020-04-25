@@ -8,6 +8,9 @@ use App\Role;
 
 class UserController extends Controller
 {
+    public function __construct() {
+        $this->middleware('ceo');
+    }
     public function index() {
         $users = User::all();
         return view('user/bdd', compact('users'));

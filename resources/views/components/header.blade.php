@@ -15,12 +15,19 @@
                 <li><a href="{{route('blog')}}">{{$item->navTrois}}</a></li>
                 <li><a href="{{route('contact')}}">{{$item->navQuatre}}</a></li>
             @endforeach
-            @if (Auth::check())
-                <li><a href="{{route('login')}}">{{ Auth::user()->name }}</a></li>
-            @else
-                <li><a href="{{route('login')}}">LOGIN</a></li>
-                <li><a href="{{route('register')}}">REGISTER</a></li>
+            @if (Auth::check() && Auth::id() == 1 || Auth::id() == 2 || Auth::id() == 3 || Auth::id() == 5)
+                <li><a href="{{route('home')}}">Back-Office</a></li>
             @endif
+            @guest
+            <li><a href="{{route('login')}}">Login</a></li>
+            @else
+            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+				document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+            @endguest
         </ul>
     </nav>
 </header>

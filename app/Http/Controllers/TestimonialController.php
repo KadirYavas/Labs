@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
+    public function __construct() {
+        $this->middleware('webmaster');
+    }
     /**
      * Display a listing of the resource.
      *

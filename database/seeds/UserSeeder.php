@@ -21,15 +21,15 @@ class UserSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name' => 'Rédacteur',
-            'email' => 'reda@reda.com',
+            'email' => 'redacteur@redacteur.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 3,
             'photo' => '3.jpg',
             'description' => 'Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.',
         ]);
         DB::table('users')->insert([
-            'name' => 'Mkdir',
-            'email' => 'mkdir@mkdir.com',
+            'name' => 'CEO',
+            'email' => 'ceo@ceo.com',
             'password' => Hash::make('123456789'),
             'roles_id' => 4,
             'photo' => '2.jpg',

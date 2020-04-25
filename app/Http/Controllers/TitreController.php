@@ -7,6 +7,9 @@ use App\Titre;
 
 class TitreController extends Controller
 {
+    public function __construct() {
+        $this->middleware('acces');
+    }
     public function index() {
         $titres = Titre::all();
         return view('titres/bdd', compact('titres'));

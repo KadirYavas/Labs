@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\URL;
 
 class FormulaireController extends Controller
 {
+    public function __construct() {
+        $this->middleware('acces')->only('index');
+    }
     /**
      * Display a listing of the resource.
      *

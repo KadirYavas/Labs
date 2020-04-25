@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class HeaderController extends Controller
 {
+    public function __construct() {
+        $this->middleware('webmaster');
+    }
     /**
      * Display a listing of the resource.
      *

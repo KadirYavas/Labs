@@ -167,7 +167,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'Back-Office',
 
     'logout_url' => 'logout',
 
@@ -209,11 +209,6 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
@@ -222,6 +217,131 @@ return [
             'text'        => 'Homepage',
             'url'         => '/',
             'icon'        => 'fas fa-home',
+        ],
+        ['text' => 'Back-Office Page Blog',
+         'icon_color' => 'red',
+         'submenu' => [
+            [
+                'text'        => 'Blog',
+                'url'         => '/BDD-Blog',
+                'icon'        => 'fas fa-blog',
+                'icon_color'  => 'purple',
+                'submenu' => [
+                    [
+                        'text'        => 'Base de données',
+                        'url'         => '/BDD-Blog',
+                        'icon'        => 'far fa-fw fa-file',
+                        'icon_color' => 'blue',
+                    ],
+                    [
+                        'text'        => 'Validez un article',
+                        'url'         => '/BDD-Valide',
+                        'icon'        => 'far fa-fw fa-file',
+                        'icon_color' => 'green',
+                    ],
+                    [
+                        'text'        => 'Ajoutez un article',
+                        'url'         => '/AddArticle',
+                        'icon'        => 'far fa-fw fa-file',
+                        'icon_color' => 'red',
+                    ]
+                ]
+            ],
+            [
+                'text'        => 'Categorie',
+                'url'         => '/BDD-Categorie',
+                'icon'        => 'fas fa-puzzle-piece',
+                'icon_color'  => 'purple',
+                'submenu' => [
+                    [
+                        'text'        => 'Base de données',
+                        'url'         => '/BDD-Categorie',
+                        'icon'        => 'fas fa-puzzle-piece',
+                        'icon_color' => 'blue',
+                    ],
+                    [
+                        'text'        => 'Ajoutez une catégorie',
+                        'url'         => '/CreateCategorie',
+                        'icon'        => 'fas fa-puzzle-piece',
+                        'icon_color' => 'red',
+                    ]
+                ]
+            ],
+            [
+                'text'        => 'Tag',
+                'url'         => '/BDD-Tag',
+                'icon'        => 'fas fa-puzzle-piece',
+                'icon_color'  => 'purple',
+                'submenu' => [
+                    [
+                        'text'        => 'Base de données',
+                        'url'         => '/BDD-Tag',
+                        'icon'        => 'fas fa-puzzle-piece',
+                        'icon_color' => 'blue',
+                    ],
+                    [
+                        'text'        => 'Ajoutez un tag',
+                        'url'         => '/CreateTag',
+                        'icon'        => 'fas fa-puzzle-piece',
+                        'icon_color' => 'red',
+                    ]
+                ]
+            ],
+            [
+                'text'        => 'Commentaires',
+                'url'         => '/BDD-Commentaire',
+                'icon'        => 'fas fa-newspaper',
+                'icon_color'  => 'purple',
+            ],
+            [
+                'text'        => 'Quote',
+                'url'         => '/BDD-Quote',
+                'icon'        => 'fas fa-newspaper',
+                'icon_color'  => 'purple',
+            ],
+         ]
+        ],
+        ['text' => 'Back-Office Page Contact',
+         'icon_color' => 'yellow',
+         'submenu' => [
+            [
+                'text'        => 'Formulaire',
+                'url'         => '/BDD-Form',
+                'icon'        => 'fas fa-paragraph',
+                'icon_color'  => 'pink',
+            ],
+            [
+                'text'        => 'Contact',
+                'url'         => '/BDD-Contact',
+                'icon'        => 'fas fa-id-card',
+                'icon_color'  => 'pink',
+            ], 
+         ]
+        ],
+        ['text' => 'Back-Office Page Service',
+         'icon_color' => 'green',
+         'submenu' => [
+            [
+                'text'        => 'Service',
+                'url'         => '/BDD-Service',
+                'icon'        => 'fas fa-fw fa-share',
+                'icon_color'  => 'cyan',
+                'submenu' => [
+                    [
+                        'text'        => 'Base de données',
+                        'url'         => '/BDD-Service',
+                        'icon'        => 'far fa-fw fa-file',
+                        'icon_color' => 'blue',
+                    ],
+                    [
+                        'text'        => 'Ajoutez un service',
+                        'url'         => '/EnvoiService',
+                        'icon'        => 'far fa-fw fa-file',
+                        'icon_color' => 'red',
+                    ]
+                ]
+            ],
+         ]
         ],
         [
             'text'        => 'Header',
@@ -243,38 +363,9 @@ return [
             ]
         ],
         [
-            'text'        => 'Service',
-            'url'         => '/BDD-Service',
-            'icon'        => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text'        => 'Base de données',
-                    'url'         => '/BDD-Service',
-                    'icon'        => 'far fa-fw fa-file',
-                    'icon_color' => 'blue',
-                ],
-                [
-                    'text'        => 'Ajoutez un service',
-                    'url'         => '/EnvoiService',
-                    'icon'        => 'far fa-fw fa-file',
-                    'icon_color' => 'red',
-                ]
-            ]
-        ],
-        [
             'text'        => 'Discover',
             'url'         => '/BDD-Discover',
             'icon'        => 'fas fa-file-alt',
-        ],
-        [
-            'text'        => 'Formulaire',
-            'url'         => '/BDD-Form',
-            'icon'        => 'fas fa-paragraph',
-        ],
-        [
-            'text'        => 'Contact',
-            'url'         => '/BDD-Contact',
-            'icon'        => 'fas fa-id-card',
         ],
         [
             'text'        => 'Titre',
@@ -285,69 +376,6 @@ return [
             'text'        => 'Ready',
             'url'         => '/BDD-Ready',
             'icon'        => 'fas fa-heading',
-        ],
-        [
-            'text'        => 'Blog',
-            'url'         => '/BDD-Blog',
-            'icon'        => 'fas fa-blog',
-            'submenu' => [
-                [
-                    'text'        => 'Base de données',
-                    'url'         => '/BDD-Blog',
-                    'icon'        => 'far fa-fw fa-file',
-                    'icon_color' => 'blue',
-                ],
-                [
-                    'text'        => 'Validez un article',
-                    'url'         => '/BDD-Valide',
-                    'icon'        => 'far fa-fw fa-file',
-                    'icon_color' => 'green',
-                ],
-                [
-                    'text'        => 'Ajoutez un article',
-                    'url'         => '/AddArticle',
-                    'icon'        => 'far fa-fw fa-file',
-                    'icon_color' => 'red',
-                ]
-            ]
-        ],
-        [
-            'text'        => 'Categorie',
-            'url'         => '/BDD-Categorie',
-            'icon'        => 'fas fa-puzzle-piece',
-            'submenu' => [
-                [
-                    'text'        => 'Base de données',
-                    'url'         => '/BDD-Categorie',
-                    'icon'        => 'fas fa-puzzle-piece',
-                    'icon_color' => 'blue',
-                ],
-                [
-                    'text'        => 'Ajoutez une catégorie',
-                    'url'         => '/CreateCategorie',
-                    'icon'        => 'fas fa-puzzle-piece',
-                    'icon_color' => 'red',
-                ]
-            ]
-        ],
-        [
-            'text'        => 'Tag',
-            'url'         => '/BDD-Tag',
-            'icon'        => 'fas fa-puzzle-piece',
-            'submenu' => [
-                [
-                    'text'        => 'Base de données',
-                    'url'         => '/BDD-Tag',
-                    'icon'        => 'fas fa-puzzle-piece',
-                    'icon_color' => 'blue',
-                ],
-                [
-                    'text'        => 'Ajoutez un tag',
-                    'url'         => '/CreateTag',
-                    'icon'        => 'fas fa-puzzle-piece',
-                    'icon_color' => 'red',
-                ]
-            ]
         ],
         [
             'text'        => 'Footer',
@@ -384,11 +412,6 @@ return [
             'url'         => '/BDD-News',
             'icon'        => 'fas fa-newspaper',
         ],
-        [
-            'text'        => 'Commentaires',
-            'url'         => '/BDD-Commentaire',
-            'icon'        => 'fas fa-newspaper',
-        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -399,57 +422,6 @@ return [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
         ],
     ],
 

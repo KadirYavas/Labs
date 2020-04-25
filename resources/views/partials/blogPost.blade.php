@@ -103,8 +103,8 @@
             <div class="col-md-4 col-sm-5 sidebar">
                 <!-- Single widget -->
                 <div class="widget-item">
-                    <form action="#" class="search-form">
-                        <input type="text" placeholder="Search">
+                    <form method="GET" action="{{route('search')}}" class="search-form">
+                        <input type="text" placeholder="Search" name="word">
                         <button class="search-btn"><i class="flaticon-026-search"></i></button>
                     </form>
                 </div>

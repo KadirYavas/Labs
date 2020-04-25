@@ -21,6 +21,10 @@ Route::post('/messageSend', 'FormulaireController@store')->name('email');
 Route::get('/BDD-News', 'NewsletterController@index')->name('bddNews');
 Route::post('/newsSend', 'NewsletterController@store')->name('news');
 
+Route::get('/BDD-Quote', 'QuoteController@create')->name('QuoteBDD');
+Route::get('/EditQuote/{id}', 'QuoteController@edit')->name('editQuote');
+Route::post('/UpdateQuote/{id}', 'QuoteController@update')->name('updateQuote');
+
 Route::get('/BDD-Categorie', 'CategorieController@index')->name('CategorieBDD');
 Route::get('/CreateCategorie', 'CategorieController@create')->name('addCategorie');
 Route::post('/StoreCategorie', 'CategorieController@store')->name('envoiCategorie');
@@ -108,10 +112,6 @@ Route::post('/StoreCommentaire', 'CommentaireController@store')->name('sendComme
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/Back-Office', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');

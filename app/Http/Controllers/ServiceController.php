@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    public function __construct() {
+        $this->middleware('webmaster')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *

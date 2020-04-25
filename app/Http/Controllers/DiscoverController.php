@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class DiscoverController extends Controller
 {
+    public function __construct() {
+        $this->middleware('webmaster');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +22,7 @@ class DiscoverController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show th$this->middleware('adminwebmaster');e form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */

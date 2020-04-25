@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+    public function __construct() {
+        $this->middleware('acces')->except('show');
+    }
     /**
      * Display a listing of the resource.
      *

@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    public function __construct() {
+        $this->middleware('webmaster')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -74,7 +77,7 @@ class ContactController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Respindex', 'indexDeux', 'show', 'searconse
      */
     public function update(Request $request, $id)
     {
@@ -98,7 +101,7 @@ class ContactController extends Controller
         return redirect()->route('ContactBDD');
     }
 
-    /**
+    /**$this->middleware('adminwebmaster');
      * Remove the specified resource from storage.
      *
      * @param  \App\Contact  $contact

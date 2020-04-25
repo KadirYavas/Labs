@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
+    public function __construct() {
+        $this->middleware('redacteur')->except('index', 'indexDeux', 'show', 'search');
+        // $this->middleware('redacteur')->only('indexBDD', 'create', 'store', 'edit', 'update', 'destroy');
+        $this->middleware('webmaster')->only('indexBDDValide');
+    }
     /**
      * Display a listing of the resource.
      *

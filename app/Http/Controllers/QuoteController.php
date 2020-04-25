@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
+    public function __construct() {
+        $this->middleware('acces');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +27,8 @@ class QuoteController extends Controller
      */
     public function create()
     {
-        //
+        $quote = Quote::all();
+        return view('quote/bdd', compact('quote'));
     }
 
     /**
@@ -55,9 +59,10 @@ class QuoteController extends Controller
      * @param  \App\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function edit(Quote $quote)
+    public function edit($id)
     {
-        //
+        $quote = Quote::find($id);
+        return view('quote/editQuote', compact('quote'));
     }
 
     /**
@@ -67,9 +72,18 @@ class QuoteController extends Controller
      * @param  \App\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Quote $quote)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'description' => 'required',
+        ]);
+
+        $quote = Quote::find($id);
+        $quote->description = $request->input('description');
+
+        $quote->save();
+
+        return redirect()->route('QuoteBDD');
     }
 
     /**
