@@ -108,7 +108,7 @@ Route::get('/EditUser/{id}', 'UserController@edit')->name('editUser');
 Route::post('/UpdateUser/{id}', 'UserController@update')->name('updateUser');
 
 Route::get('BDD-Commentaire', 'CommentaireController@index')->name('CommentaireBDD');
-Route::post('/StoreCommentaire', 'CommentaireController@store')->name('sendCommentaire');
+Route::post('/StoreCommentaire/{id}', 'CommentaireController@store')->name('sendCommentaire');
 
 Auth::routes();
 

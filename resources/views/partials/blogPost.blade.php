@@ -72,7 +72,7 @@
                             </div>
 
                             @endif
-                            <form class="form-class" action="{{route('sendCommentaire')}}" method="POST">
+                            <form class="form-class" action="{{route('sendCommentaire', $article->first()->id)}}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">

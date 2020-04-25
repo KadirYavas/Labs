@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 use App\Mail\NewsMail;
 
 class NewsletterController extends Controller
@@ -41,6 +42,16 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
+        $valider = Validator::make($request->all(),[
+            'news' => 'required',
+        ]);
+
+        if($valider->fails()){
+
+            return redirect()->to(app('url')->previous() . '#newsletter')->withErrors($valider);
+        }
+        
+
         $news = new Newsletter();
 
         $news->email = $request->input('news');

@@ -16,6 +16,9 @@
                 @endif
                 <form class="nl-form" action="{{route('news')}}" method="POST">
                     @csrf
+                    @error('news')
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @enderror
                     <input type="text" name="news" placeholder="Your e-mail here">
                     <button type="submit" class="site-btn btn-2">Newsletter</button>
                 </form>

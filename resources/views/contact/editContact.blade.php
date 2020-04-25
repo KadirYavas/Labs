@@ -12,7 +12,7 @@
 @csrf
 
 <div class="d-flex flex-column align-items-center">
-<textarea class="w-25 m-2 form-control @error('description') is-invalid @enderror" value="" type="text" rows="5" cols="30" name="description" id="">{{$contact->description}}</textarea>
+<textarea class="w-25 m-2 form-control @error('description') is-invalid @enderror" value="" type="text" rows="5" cols="30" name="description" id="">{{old('description', $contact->description)}}</textarea>
 @error('description')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror

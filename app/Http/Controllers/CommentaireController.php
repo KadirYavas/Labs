@@ -38,7 +38,7 @@ class CommentaireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         
         if (Auth::check()) {
@@ -49,6 +49,8 @@ class CommentaireController extends Controller
     
             $commentaire = new Commentaire();
             $commentaire->message = $request->input('message');
+            $commentaire->article_id = $id;
+            $commentaire->user_id = Auth::id();
             $commentaire->save();
 
             return redirect()->to(app('url')->previous() . '#coms')->with('newslett', 'sent');

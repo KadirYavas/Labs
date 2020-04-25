@@ -29,7 +29,7 @@
                 
                                 @else
                                     
-                                <a href="">{{$commentaire->count()}} Comments</a>
+                                <a href="">{{$item->commentaires->count()}} Comments</a>
                                 @endif
                             </div>
                             @if ( Request::is('SearchWord'))

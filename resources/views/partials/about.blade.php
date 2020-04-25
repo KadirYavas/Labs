@@ -39,9 +39,9 @@
                     </div>
                 </div>
                 <div class="text-center mt60">
-                    @if ($item->bouton == 1) 
+                    @if ($item->bouton == true) 
                         <a href="{{route('contact')}}" class="site-btn">Browse</a>
-                    @else
+                    @elseif ($item->bouton == false)
                         
                     @endif
                 </div>

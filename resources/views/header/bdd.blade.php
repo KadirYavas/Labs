@@ -23,7 +23,7 @@
     @foreach($header as $item)
         <tr>
             <td>{{ $item->id }}</td>
-            <td><img src="{{ 'img/'.$item->logo }}" width="200px" alt=""></td>
+            <td><img src="{{ 'storage/'.$item->logo }}" width="200px" alt=""></td>
             <td>{{ $item->texte }}</td>
             <td>{{ $item->navUn }}</td>
             <td>{{ $item->navDeux }}</td>

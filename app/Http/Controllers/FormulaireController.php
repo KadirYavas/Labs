@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\FormMail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
 
 class FormulaireController extends Controller
 {
@@ -43,12 +44,17 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $valide = Validator::make($request->all(), [
             'name' => 'required|min:3|max:25',
             'email' => 'required',
             'subject' => 'required|max:50|min:3',
             'message' => 'required|max:500|min:10',
         ]);
+
+        if($valide->fails()){
+
+            return redirect()->to(app('url')->previous() . '#con_form')->withErrors($valide);
+        }
 
         $form = new Formulaire();
         $form->nom = $request->input('name');
@@ -58,11 +64,8 @@ class FormulaireController extends Controller
         $form->save();
         
         $name = $request->input('name');
-        
         $email =  $request->input('email');
-        
         $subject =  $request->input('subject');
-        
         $message = $request->input('message');
         
         Mail::to('admin@admin.com')->send(new FormMail($name, $email, $subject, $message));

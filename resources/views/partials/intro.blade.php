@@ -3,7 +3,7 @@
     <div class="hero-content">
         @foreach ($header as $item) 
             <div class="hero-center">
-                <img src="{{asset('storage/'.$item->logo)}}" alt="">
+                <img src="{{asset('storage/'.$item->logo)}}" width="30%" alt="">
                 <p>{{$item->texte}}</p>
             </div>
         @endforeach
