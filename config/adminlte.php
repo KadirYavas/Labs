@@ -220,30 +220,35 @@ return [
         ],
         ['text' => 'Back-Office Page Blog',
          'icon_color' => 'red',
+         'can'         => 'redacteur',
          'submenu' => [
             [
                 'text'        => 'Blog',
                 'url'         => '/BDD-Blog',
                 'icon'        => 'fas fa-blog',
                 'icon_color'  => 'purple',
+                'can'         => 'redacteur',
                 'submenu' => [
                     [
                         'text'        => 'Base de données',
                         'url'         => '/BDD-Blog',
                         'icon'        => 'far fa-fw fa-file',
                         'icon_color' => 'blue',
+                        'can'         => 'redacteur',
                     ],
                     [
                         'text'        => 'Validez un article',
                         'url'         => '/BDD-Valide',
                         'icon'        => 'far fa-fw fa-file',
                         'icon_color' => 'green',
+                        'can'         => 'webmaster',
                     ],
                     [
                         'text'        => 'Ajoutez un article',
                         'url'         => '/AddArticle',
                         'icon'        => 'far fa-fw fa-file',
                         'icon_color' => 'red',
+                        'can'         => 'redacteur',
                     ]
                 ]
             ],
@@ -252,6 +257,7 @@ return [
                 'url'         => '/BDD-Categorie',
                 'icon'        => 'fas fa-puzzle-piece',
                 'icon_color'  => 'purple',
+                'can'         => 'admin',
                 'submenu' => [
                     [
                         'text'        => 'Base de données',
@@ -272,6 +278,7 @@ return [
                 'url'         => '/BDD-Tag',
                 'icon'        => 'fas fa-puzzle-piece',
                 'icon_color'  => 'purple',
+                'can'         => 'admin',
                 'submenu' => [
                     [
                         'text'        => 'Base de données',
@@ -292,34 +299,40 @@ return [
                 'url'         => '/BDD-Commentaire',
                 'icon'        => 'fas fa-newspaper',
                 'icon_color'  => 'purple',
+                'can'         => 'admin',
             ],
             [
                 'text'        => 'Quote',
                 'url'         => '/BDD-Quote',
                 'icon'        => 'fas fa-newspaper',
                 'icon_color'  => 'purple',
+                'can'         => 'admin',
             ],
          ]
         ],
         ['text' => 'Back-Office Page Contact',
          'icon_color' => 'yellow',
+         'can'         => 'webmaster',
          'submenu' => [
             [
                 'text'        => 'Formulaire',
                 'url'         => '/BDD-Form',
                 'icon'        => 'fas fa-paragraph',
                 'icon_color'  => 'pink',
+                'can'         => 'admin',
             ],
             [
                 'text'        => 'Contact',
                 'url'         => '/BDD-Contact',
                 'icon'        => 'fas fa-id-card',
                 'icon_color'  => 'pink',
+                'can'         => 'webmaster',
             ], 
          ]
         ],
         ['text' => 'Back-Office Page Service',
          'icon_color' => 'green',
+         'can'         => 'webmaster',
          'submenu' => [
             [
                 'text'        => 'Service',
@@ -347,6 +360,7 @@ return [
             'text'        => 'Header',
             'url'         => '/BDD-Header',
             'icon'        => 'far fa-fw fa-file',
+            'can'         => 'webmaster',
             'submenu' => [
                 [
                     'text'        => 'Base de données',
@@ -366,26 +380,31 @@ return [
             'text'        => 'Discover',
             'url'         => '/BDD-Discover',
             'icon'        => 'fas fa-file-alt',
+            'can'         => 'webmaster',
         ],
         [
             'text'        => 'Titre',
             'url'         => '/BDD-Titre',
             'icon'        => 'fas fa-paragraph',
+            'can'         => 'admin'
         ],
         [
             'text'        => 'Ready',
             'url'         => '/BDD-Ready',
             'icon'        => 'fas fa-heading',
+            'can'         => 'admin'
         ],
         [
             'text'        => 'Footer',
             'url'         => '/BDD-Footer',
             'icon'        => 'fas fa-shoe-prints',
+            'can'         => 'admin'
         ],
         [
             'text'        => 'Testimonial',
             'url'         => '/BDD-Testimonial',
             'icon'        => 'fas fa-users',
+            'can'         => 'webmaster',
             'submenu' => [
                 [
                     'text'        => 'Base de données',
@@ -405,23 +424,13 @@ return [
             'text'        => 'Users',
             'url'         => '/BDD-Users',
             'icon'        => 'fas fa-users',
-            // 'can'         => 'CEO',
+            'can'         => 'ceo',
         ],
         [
             'text'        => 'Newsletter',
             'url'         => '/BDD-News',
             'icon'        => 'fas fa-newspaper',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'can'         => 'admin',
         ],
     ],
 
