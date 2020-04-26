@@ -12,20 +12,18 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nom</th>
-        <th>Email</th>
-        <th>Sujet</th>
-        <th>Message</th>
+        <th>Commentaires</th>
+        <th>Titre de l'article appartenant au commentaire</th>
+        <th>Nom de l'user ayant laissé le commentaire</th>
     </tr>
     </thead>
     <tbody>
     @foreach($commentaire as $item)
         <tr>
             <td>{{ $item->id }}</td>
-            <td>{{ $item->nom }}</td>
-            <td>{{ $item->email }}</td>
-            <td>{{ $item->sujet }}</td>
             <td>{{ $item->message }}</td>
+            <td>{{ $item->article->titre }}</td>
+            <td>{{ $item->user->name }}</td>
         </tr>
     @endforeach
     </tbody>

@@ -77,11 +77,13 @@ class FooterController extends Controller
         $request->validate([
             'texte' => 'required|max:50|min:5',
             'lien' => 'required',
+            'nom' => 'required',
         ]);
 
         $footer = Footer::find($id);
         $footer->texte = $request->input('texte');
         $footer->lien = $request->input('lien');
+        $footer->nom = $request->input('nom');
         $footer->position = $request->input('position');
 
         $footer->save();

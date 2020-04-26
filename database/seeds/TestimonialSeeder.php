@@ -33,15 +33,15 @@ class TestimonialSeeder extends Seeder
             'image' => '001.jpg',
         ]);
         DB::table('testimonials')->insert([
-            'nom' => 'Lipa',
-            'prenom' => 'Dua',
+            'nom' => 'Rexha',
+            'prenom' => 'Bebe',
             'fonction' => 'Singer',
             'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'image' => '002.jpg',
         ]);
         DB::table('testimonials')->insert([
-            'nom' => 'Gueko',
-            'prenom' => 'Seth',
+            'nom' => 'James',
+            'prenom' => 'Kery',
             'fonction' => 'Barlou',
             'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'image' => '001.jpg',
@@ -54,8 +54,8 @@ class TestimonialSeeder extends Seeder
             'image' => '003.jpg',
         ]);
         DB::table('testimonials')->insert([
-            'nom' => 'Lipa',
-            'prenom' => 'Dua',
+            'nom' => 'Gomez',
+            'prenom' => 'Selena',
             'fonction' => 'Singer',
             'texte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'image' => '002.jpg',

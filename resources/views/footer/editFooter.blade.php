@@ -26,6 +26,13 @@
     </div>
 
     <div class="d-flex justify-content-around mb-3">
+        <input class="w-75 form-control @error('nom') is-invalid @enderror" type="text" name="nom" id="" rows="5" cols="40" value="{{$footer->nom}}">
+        @error('nom')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        </div>
+
+    <div class="d-flex justify-content-around mb-3">
         <select class="form-control w-25" name="position" id="">
             <option value="">Choisir la position</option>
             <option value="0">Gauche</option>

@@ -20,8 +20,8 @@ class ArticleSeeder extends Seeder
             'users_id' => 2,
             'categorie_id' => 4,
             'valide' => true,
-            'created_at' => '2020-04-23 19:41:53',
-            'updated_at' => '2020-04-23 19:41:53',
+            'created_at' => '2020-04-23 19:47:53',
+            'updated_at' => '2020-04-23 19:47:53',
         ]);
         DB::table('articles')->insert([
             'photo' => 'card-2.jpg',
@@ -30,8 +30,8 @@ class ArticleSeeder extends Seeder
             'users_id' => 2,
             'categorie_id' => 7,
             'valide' => true,
-            'created_at' => '2020-04-23 19:49:53',
-            'updated_at' => '2020-04-23 19:49:53',
+            'created_at' => '2020-04-23 19:48:53',
+            'updated_at' => '2020-04-23 19:48:53',
         ]);
         DB::table('articles')->insert([
             'photo' => 'card-1.jpg',
@@ -40,8 +40,8 @@ class ArticleSeeder extends Seeder
             'users_id' => 2,
             'categorie_id' => 10,
             'valide' => true,
-            'created_at' => '2020-04-23 19:47:53',
-            'updated_at' => '2020-04-23 19:47:53',
+            'created_at' => '2020-04-23 19:49:53',
+            'updated_at' => '2020-04-23 19:49:53',
         ]);
         DB::table('articles')->insert([
             'photo' => 'card-2.jpg',

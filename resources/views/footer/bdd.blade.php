@@ -12,6 +12,7 @@
         <th>ID</th>
         <th>Texte</th>
         <th>Lien</th>
+        <th>Nom du lien</th>
         <th>Position: <br>True(1) = Droite <br>False(0) = Gauche</th>
         <th>Actions: Edit</th>
     </tr>
@@ -22,6 +23,7 @@
             <td>{{ $item->id }}</td>
             <td>{{ $item->texte }}</td>
             <td><a href="{{ $item->lien }}">Lien</a></td>
+            <td>{{ $item->nom }}</td>
             <td>{{$item->position}}</td>
             <td class="d-flex">
                 <a href="{{route('editFooter', $item->id)}}"><button class="btn btn-outline-primary m-1">Modifier le texte & le lien</button></a>

@@ -113,7 +113,7 @@
                     <h2 class="widget-title">Categories</h2>
                     <ul>
                         @foreach ($categorie as $item) 
-                            <li><a href="#">{{$item->section}}</a></li>
+                            <li><a href="{{route('showCategorie', $item->id)}}">{{$item->section}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -122,7 +122,7 @@
                     <h2 class="widget-title">Tags</h2>
                     <ul class="tag">
                         @foreach ($tag as $item) 
-                            <li><a href="">{{$item->tag}}</a></li>
+                            <li><a href="{{route('showTag', $item->id)}}">{{$item->tag}}</a></li>
                         @endforeach
                     </ul>
                 </div>

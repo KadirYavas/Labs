@@ -28,7 +28,7 @@ class ServiceController extends Controller
         $titres = Titre::first();
         $footer = Footer::all();
         $serviceSix = Service::orderBy('id', 'desc')->take(6)->get();
-        $article = Article::orderBy('id', 'asc')->take(3)->get();
+        $article = Article::latest()->take(3)->get();
         return view('service', compact('header', 'serviceNeuf', 'contact', 'titres', 'footer', 'serviceSix', 'article'));
     }
     public function indexBDD()

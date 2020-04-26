@@ -4,7 +4,7 @@
         @if ($item->position)
             <h2>{{$item->texte}} <a href="{{$item->lien}}" target="_blank">Colorlib</a></h2>
         @else
-            <h2><a href="{{$item->lien}}" target="_blank">Colorlib</a> {{$item->texte}} </h2>
+            <h2><a href="{{$item->lien}}" target="_blank">{{$item->nom}}</a> {{$item->texte}} </h2>
         @endif
     @endforeach
 </footer>
